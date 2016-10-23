@@ -14,7 +14,7 @@ type World struct {
 	Modules map[string]*Module `json:"module"`
 }
 type Module struct {
-	Name  string             `json:"-"`
+	Name  string             `json:"name"`
 	Files map[string]*Result `json:"file"`
 }
 
@@ -36,7 +36,7 @@ const (
 )
 
 type Result struct {
-	Name          string                       `json:"-"`
+	Name          string                       `json:"name"`
 	AliasMap      map[string]*AliasDefinition  `json:"alias"`
 	StructMap     map[string]*StructDefinition `json:"struct"`
 	MaybeAliasses []*AliasValue                `json:"-"`
@@ -81,7 +81,7 @@ func findName(node ast.Node) string {
 }
 
 type Field struct {
-	Name  string   `json:"-"`
+	Name  string   `json:"name"`
 	Tags  []string `json:"tags"`
 	Type  Type     `json:"type"`
 	Embed bool     `json:"embed"`
@@ -323,13 +323,13 @@ func (r *Result) AddAliasValue(ob *ast.Object) (*AliasDefinition, error) {
 }
 
 type StructDefinition struct {
-	Name   string `json:"-"`
+	Name   string `json:"name"`
 	rawDef *ast.Object
 	Fields map[string]*Field
 }
 
 type AliasDefinition struct {
-	Name          string        `json:"-"`
+	Name          string        `json:"name"`
 	Original      Type          `json:"original"`
 	Candidates    []*AliasValue `json:"candidates"`
 	rawDef        *ast.Object
@@ -338,7 +338,7 @@ type AliasDefinition struct {
 
 type AliasValue struct {
 	TypeName string      `json:"-"`
-	Name     string      `json:"-"`
+	Name     string      `json:"name"`
 	Value    interface{} `json:"value"`
 	rawDef   *ast.Object
 }

@@ -7,27 +7,33 @@
             "ArchiveFormat": {
               "candidates": [
                 {
+                  "name": "Tarball",
                   "value": "\"tarball\""
                 },
                 {
+                  "name": "Zipball",
                   "value": "\"zipball\""
                 }
               ],
+              "name": "ArchiveFormat",
               "original": {
                 "kind": "primitive",
                 "value": "string"
               }
             }
           },
+          "name": "examples/models/file.go",
           "struct": {}
         },
         "examples/models/group.go": {
           "alias": {},
+          "name": "examples/models/group.go",
           "struct": {
             "Group": {
               "Fields": {
                 "ID": {
                   "embed": false,
+                  "name": "ID",
                   "tags": [
                     "`json:\"id\" bson:\"_id\"`"
                   ],
@@ -38,6 +44,7 @@
                 },
                 "Name": {
                   "embed": false,
+                  "name": "Name",
                   "tags": [
                     "`json:\"name\"`"
                   ],
@@ -46,7 +53,8 @@
                     "value": "string"
                   }
                 }
-              }
+              },
+              "name": "Group"
             }
           }
         },
@@ -55,26 +63,32 @@
             "PersonGender": {
               "candidates": [
                 {
-                  "value": "\"female\""
-                },
-                {
+                  "name": "PersonGendermale",
                   "value": "\"male\""
                 },
                 {
+                  "name": "PersonGenderUnknown",
                   "value": "\"unknown\""
+                },
+                {
+                  "name": "PersonGenderFemale",
+                  "value": "\"female\""
                 }
               ],
+              "name": "PersonGender",
               "original": {
                 "kind": "primitive",
                 "value": "string"
               }
             }
           },
+          "name": "examples/models/person.go",
           "struct": {
             "Person": {
               "Fields": {
                 "Age": {
                   "embed": false,
+                  "name": "Age",
                   "tags": [
                     "`json:\"age\" bson:\"age\"`"
                   ],
@@ -85,6 +99,7 @@
                 },
                 "Gender": {
                   "embed": false,
+                  "name": "Gender",
                   "tags": [
                     "`json:\"gender\" bson:\"gender\"`"
                   ],
@@ -95,6 +110,7 @@
                 },
                 "Group": {
                   "embed": false,
+                  "name": "Group",
                   "tags": [
                     "`json:\"-\"`"
                   ],
@@ -108,6 +124,7 @@
                 },
                 "GroupID": {
                   "embed": false,
+                  "name": "GroupID",
                   "tags": [
                     "`json:\"groupId,omitempty\" bson:\"groupId\"`"
                   ],
@@ -121,6 +138,7 @@
                 },
                 "ID": {
                   "embed": false,
+                  "name": "ID",
                   "tags": [
                     "`json:\"id\" bson:\"_id\"`"
                   ],
@@ -131,6 +149,7 @@
                 },
                 "Name": {
                   "embed": false,
+                  "name": "Name",
                   "tags": [
                     "`json:\"name\" bson:\"name\"`"
                   ],
@@ -139,11 +158,13 @@
                     "value": "string"
                   }
                 }
-              }
+              },
+              "name": "Person"
             }
           }
         }
-      }
+      },
+      "name": "models"
     }
   }
 }
