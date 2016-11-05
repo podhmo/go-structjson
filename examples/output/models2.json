@@ -1809,82 +1809,7 @@
     },
     "models": {
       "file": {
-        "GOPATH/src/github.com/podhmo/go-structjson/examples/models/file.go": {
-          "alias": {
-            "ArchiveFormat": {
-              "candidates": [
-                {
-                  "name": "Tarball",
-                  "value": "\"tarball\""
-                },
-                {
-                  "name": "Zipball",
-                  "value": "\"zipball\""
-                }
-              ],
-              "name": "ArchiveFormat",
-              "original": {
-                "kind": "primitive",
-                "value": "string"
-              }
-            }
-          },
-          "import": {},
-          "name": "GOPATH/src/github.com/podhmo/go-structjson/examples/models/file.go",
-          "struct": {}
-        },
-        "GOPATH/src/github.com/podhmo/go-structjson/examples/models/group.go": {
-          "alias": {},
-          "import": {
-            "b": {
-              "fullname": "gopkg.in/mgo.v2/bson",
-              "name": "b"
-            }
-          },
-          "name": "GOPATH/src/github.com/podhmo/go-structjson/examples/models/group.go",
-          "struct": {
-            "Group": {
-              "fields": {
-                "ID": {
-                  "embed": false,
-                  "name": "ID",
-                  "tags": {
-                    "bson": [
-                      "_id"
-                    ],
-                    "json": [
-                      "id"
-                    ]
-                  },
-                  "type": {
-                    "kind": "selector",
-                    "prefix": "b",
-                    "value": {
-                      "Name": "ObjectId",
-                      "NamePos": 388,
-                      "Obj": null
-                    }
-                  }
-                },
-                "Name": {
-                  "embed": false,
-                  "name": "Name",
-                  "tags": {
-                    "json": [
-                      "name"
-                    ]
-                  },
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                }
-              },
-              "name": "Group"
-            }
-          }
-        },
-        "GOPATH/src/github.com/podhmo/go-structjson/examples/models/person.go": {
+        "GOPATH/src/github.com/podhmo/go-structjson/examples/models2/person.go": {
           "alias": {
             "PersonGender": {
               "candidates": [
@@ -1914,7 +1839,7 @@
               "name": "bson"
             }
           },
-          "name": "GOPATH/src/github.com/podhmo/go-structjson/examples/models/person.go",
+          "name": "GOPATH/src/github.com/podhmo/go-structjson/examples/models2/person.go",
           "struct": {
             "Person": {
               "fields": {
@@ -1950,47 +1875,6 @@
                     "value": "PersonGender"
                   }
                 },
-                "Group": {
-                  "embed": false,
-                  "name": "Group",
-                  "tags": {
-                    "json": [
-                      "-"
-                    ]
-                  },
-                  "type": {
-                    "kind": "pointer",
-                    "value": {
-                      "kind": "primitive",
-                      "value": "Group"
-                    }
-                  }
-                },
-                "GroupID": {
-                  "embed": false,
-                  "name": "GroupID",
-                  "tags": {
-                    "bson": [
-                      "groupId"
-                    ],
-                    "json": [
-                      "groupId",
-                      "omitempty"
-                    ]
-                  },
-                  "type": {
-                    "kind": "pointer",
-                    "value": {
-                      "kind": "selector",
-                      "prefix": "bson",
-                      "value": {
-                        "Name": "ObjectId",
-                        "NamePos": 1013,
-                        "Obj": null
-                      }
-                    }
-                  }
-                },
                 "ID": {
                   "embed": false,
                   "name": "ID",
@@ -2007,7 +1891,7 @@
                     "prefix": "bson",
                     "value": {
                       "Name": "ObjectId",
-                      "NamePos": 813,
+                      "NamePos": 339,
                       "Obj": null
                     }
                   }
@@ -2034,7 +1918,7 @@
           }
         }
       },
-      "fullname": "github.com/podhmo/go-structjson/examples/models",
+      "fullname": "github.com/podhmo/go-structjson/examples/models2",
       "name": "models"
     }
   }

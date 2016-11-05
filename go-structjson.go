@@ -370,7 +370,7 @@ func (r *Result) AddAliasValue(ob *ast.Object) (*AliasDefinition, error) {
 type StructDefinition struct {
 	Name   string `json:"name"`
 	rawDef *ast.Object
-	Fields map[string]*Field
+	Fields map[string]*Field `json:"fields"`
 }
 
 type AliasDefinition struct {
