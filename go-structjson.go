@@ -6,6 +6,10 @@ import (
 	"go/parser"
 	"go/token"
 	"os"
+	"strings"
+
+	"path"
+	"strconv"
 
 	"github.com/davecgh/go-spew/spew"
 )
@@ -14,8 +18,9 @@ type World struct {
 	Modules map[string]*Module `json:"module"`
 }
 type Module struct {
-	Name  string             `json:"name"`
-	Files map[string]*Result `json:"file"`
+	Name     string             `json:"name"`
+	FullName string             `json:"fullname"`
+	Files    map[string]*Result `json:"file"`
 }
 
 func NewWorld() *World {
@@ -40,6 +45,7 @@ type Result struct {
 	AliasMap      map[string]*AliasDefinition  `json:"alias"`
 	StructMap     map[string]*StructDefinition `json:"struct"`
 	MaybeAliasses []*AliasValue                `json:"-"`
+	ImportsMap    map[string]*ImportDefinition `json:"import"`
 }
 
 func NewResult(name string) *Result {
@@ -48,6 +54,7 @@ func NewResult(name string) *Result {
 		StructMap:     make(map[string]*StructDefinition),
 		AliasMap:      make(map[string]*AliasDefinition),
 		MaybeAliasses: []*AliasValue{},
+		ImportsMap:    make(map[string]*ImportDefinition),
 	}
 }
 
@@ -59,7 +66,7 @@ func (r *Result) AddStruct(ob *ast.Object) (*StructDefinition, error) {
 	item.rawDef = ob
 	item.Name = ob.Name
 	r.StructMap[ob.Name] = item
-	fields, err := findFields(ob.Decl.(ast.Node))
+	fields, err := findFields(r, ob.Decl.(ast.Node))
 	item.Fields = fields
 	return item, err
 }
@@ -81,15 +88,16 @@ func findName(node ast.Node) string {
 }
 
 type Field struct {
-	Name  string   `json:"name"`
-	Tags  []string `json:"tags"`
-	Type  Type     `json:"type"`
-	Embed bool     `json:"embed"`
+	Name  string              `json:"name"`
+	Tags  map[string][]string `json:"tags"`
+	Type  Type                `json:"type"`
+	Embed bool                `json:"embed"`
 }
 
 type Type interface{}
 type fieldsVisitor struct {
-	Found map[string]*Field
+	Found  map[string]*Field
+	Result *Result
 }
 
 func (v *fieldsVisitor) Visit(node ast.Node) ast.Visitor {
@@ -105,35 +113,61 @@ func (v *fieldsVisitor) Visit(node ast.Node) ast.Visitor {
 	return nil
 }
 
-func (v *fieldsVisitor) visitField(node *ast.Field) error {
-	if len(node.Names) > 1 {
-		return fmt.Errorf("%s has more than one length", node.Names)
-	}
-	typ := findType(node.Type)
-	tags := []string{}
+func parseTags(node *ast.Field) map[string][]string {
+	tags := map[string][]string{}
 	if node.Tag != nil {
-		tags = append(tags, node.Tag.Value)
+		unquoted, err := strconv.Unquote(node.Tag.Value)
+		if err != nil {
+			panic(err)
+		}
+		for _, section := range strings.Split(unquoted, " ") {
+			nameAndargs := strings.SplitN(section, ":", 2)
+			if len(nameAndargs) == 2 {
+				unquotedArgs, err := strconv.Unquote(nameAndargs[1])
+				if err != nil {
+					panic(nameAndargs)
+				}
+				for _, arg := range strings.Split(unquotedArgs, ",") {
+					trimmed := strings.Trim(arg, " ")
+					tags[nameAndargs[0]] = append(tags[nameAndargs[0]], trimmed)
+				}
+			}
+		}
 	}
-	var embed bool
-	var name string
-	if len(node.Names) == 0 {
-		embed = true
-		name = findName(node.Type)
-	} else {
-		embed = false
-		name = node.Names[0].Name
-	}
+	return tags
+}
 
-	v.Found[name] = &Field{
-		Name:  name,
-		Embed: embed,
-		Tags:  tags,
-		Type:  typ,
+func (v *fieldsVisitor) visitField(node *ast.Field) error {
+	typ := findType(v.Result, node.Type)
+	if len(node.Names) == 0 {
+		name := findName(node.Type)
+		v.Found[name] = &Field{
+			Name:  name,
+			Embed: true,
+			Tags:  parseTags(node),
+			Type:  typ,
+		}
+		return nil
+	}
+	for _, nameNode := range node.Names {
+		tags := []string{}
+		if node.Tag != nil {
+			tags = append(tags, node.Tag.Value)
+		}
+		embed := false
+		name := nameNode.Name
+		v.Found[name] = &Field{
+			Name:  name,
+			Embed: embed,
+			Tags:  parseTags(node),
+			Type:  typ,
+		}
+
 	}
 	return nil
 }
 
-func findType(node ast.Node) Type {
+func findType(r *Result, node ast.Node) Type {
 	m := make(map[string]Type)
 	switch node := node.(type) {
 	case *ast.Ident:
@@ -141,30 +175,35 @@ func findType(node ast.Node) Type {
 		m["value"] = node.Name
 	case *ast.ArrayType:
 		m["kind"] = "array"
-		m["value"] = findType(node.Elt)
+		m["value"] = findType(r, node.Elt)
 	case *ast.MapType:
 		m["kind"] = "map"
-		m["key"] = findType(node.Key)
-		m["value"] = findType(node.Value)
+		m["key"] = findType(r, node.Key)
+		m["value"] = findType(r, node.Value)
+	case *ast.StructType:
+		m["kind"] = "struct"
+		m["fields"] = findType(r, node.Fields)
 	case *ast.InterfaceType:
 		m["kind"] = "interface"
-		m["methods"] = findType(node.Methods)
+		m["methods"] = findType(r, node.Methods)
 	case *ast.StarExpr:
 		m["kind"] = "pointer"
-		m["value"] = findType(node.X)
+		m["value"] = findType(r, node.X)
 	case *ast.SelectorExpr:
 		m["kind"] = "selector"
-		m["value"] = fmt.Sprintf("%s.%s", node.X.(*ast.Ident).Name, node.Sel)
+		m["prefix"] = node.X.(*ast.Ident).Name
+		m["value"] = node.Sel
+		r.ImportsMap[node.X.(*ast.Ident).Name] = &ImportDefinition{} // dummy
 	case *ast.FuncType:
 		m["kind"] = "func"
-		m["args"] = findType(node.Params)
-		m["results"] = findType(node.Results)
+		m["args"] = findType(r, node.Params)
+		m["results"] = findType(r, node.Results)
 	case *ast.TypeSpec:
-		return findType(node.Type)
+		return findType(r, node.Type)
 	case *ast.FieldList:
 		args := make([]Type, len(node.List))
 		for i, arg := range node.List {
-			args[i] = findType(arg.Type)
+			args[i] = findType(r, arg.Type)
 		}
 		return args
 	default:
@@ -174,8 +213,8 @@ func findType(node ast.Node) Type {
 	return m
 }
 
-func findFields(val ast.Node) (map[string]*Field, error) {
-	v := &fieldsVisitor{Found: make(map[string]*Field)}
+func findFields(r *Result, val ast.Node) (map[string]*Field, error) {
+	v := &fieldsVisitor{Result: r, Found: make(map[string]*Field)}
 	ast.Walk(v, val)
 	if v.Found == nil {
 		return nil, fmt.Errorf("fields is not found")
@@ -191,7 +230,7 @@ func (r *Result) AddAlias(ob *ast.Object) (*AliasDefinition, error) {
 	item.rawDef = ob
 	item.Name = ob.Name
 	if ob.Decl != nil {
-		item.Original = findType(ob.Decl.(*ast.TypeSpec))
+		item.Original = findType(r, ob.Decl.(*ast.TypeSpec))
 	}
 	r.AliasMap[ob.Name] = item
 	if !exists {
@@ -263,7 +302,9 @@ func (r *Result) AddAliasValue(ob *ast.Object) (*AliasDefinition, error) {
 	spec := ob.Decl.(*ast.ValueSpec)
 	values := spec.Values
 	if len(values) != 1 {
-		return nil, fmt.Errorf("hmm:%v", values) // xxx;
+		// iota
+		return nil, nil
+		// return nil, fmt.Errorf("hmm:%v", values) // xxx;
 	}
 	var value *AliasValue
 	switch node := spec.Type.(type) {
@@ -272,6 +313,10 @@ func (r *Result) AddAliasValue(ob *ast.Object) (*AliasDefinition, error) {
 		for _, v := range values {
 			lit, err := findBasicLit(v)
 			if err != nil {
+				if ident, ok := v.(*ast.Ident); ok && ident.Name == "iota" {
+					// iota
+					return nil, nil
+				}
 				return nil, err // xxx;
 			}
 			if lit == nil {
@@ -343,7 +388,12 @@ type AliasValue struct {
 	rawDef   *ast.Object
 }
 
-func CollectResult(name string, scope *ast.Scope) (*Result, error) {
+type ImportDefinition struct {
+	Name     string `json:"name"`
+	FullName string `json:"fullname"`
+}
+
+func CollectResult(name string, scope *ast.Scope, imports []*ast.ImportSpec) (*Result, error) {
 	r := NewResult(name)
 	for _, ob := range scope.Objects {
 		anyFound := false
@@ -371,6 +421,22 @@ func CollectResult(name string, scope *ast.Scope) (*Result, error) {
 		}
 		if !anyFound {
 			// fmt.Println(ob.Name)
+		}
+	}
+	for _, im := range imports {
+		fullname, err := strconv.Unquote(im.Path.Value)
+		if err != nil {
+			return r, err
+		}
+		var name string
+		if im.Name == nil {
+			name = path.Base(fullname)
+		} else {
+			name = im.Name.Name
+		}
+		if def, exists := r.ImportsMap[name]; exists {
+			def.FullName = fullname
+			def.Name = name
 		}
 	}
 	return r, nil
