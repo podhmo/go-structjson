@@ -192,7 +192,7 @@ func findType(r *Result, node ast.Node) Type {
 	case *ast.SelectorExpr:
 		m["kind"] = "selector"
 		m["prefix"] = node.X.(*ast.Ident).Name
-		m["value"] = node.Sel
+		m["value"] = node.Sel.Name
 		r.ImportsMap[node.X.(*ast.Ident).Name] = &ImportDefinition{} // dummy
 	case *ast.FuncType:
 		m["kind"] = "func"

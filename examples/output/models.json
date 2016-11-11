@@ -238,11 +238,7 @@
                   "type": {
                     "kind": "selector",
                     "prefix": "reflect",
-                    "value": {
-                      "Name": "Type",
-                      "NamePos": 19911,
-                      "Obj": null
-                    }
+                    "value": "Type"
                   }
                 }
               },
@@ -347,11 +343,7 @@
                   "type": {
                     "kind": "selector",
                     "prefix": "reflect",
-                    "value": {
-                      "Name": "Value",
-                      "NamePos": 20319,
-                      "Obj": null
-                    }
+                    "value": "Value"
                   }
                 }
               },
@@ -412,11 +404,7 @@
                   "type": {
                     "kind": "selector",
                     "prefix": "reflect",
-                    "value": {
-                      "Name": "Type",
-                      "NamePos": 272541,
-                      "Obj": null
-                    }
+                    "value": "Type"
                   }
                 },
                 "i": {
@@ -555,11 +543,7 @@
                   "type": {
                     "kind": "selector",
                     "prefix": "bson",
-                    "value": {
-                      "Name": "M",
-                      "NamePos": 75609,
-                      "Obj": null
-                    }
+                    "value": "M"
                   }
                 },
                 "D": {
@@ -743,11 +727,7 @@
                   "type": {
                     "kind": "selector",
                     "prefix": "bson",
-                    "value": {
-                      "Name": "Raw",
-                      "NamePos": 53024,
-                      "Obj": null
-                    }
+                    "value": "Raw"
                   }
                 }
               },
@@ -840,11 +820,7 @@
                   "type": {
                     "kind": "selector",
                     "prefix": "time",
-                    "value": {
-                      "Name": "Time",
-                      "NamePos": 52913,
-                      "Obj": null
-                    }
+                    "value": "Time"
                   }
                 }
               },
@@ -1203,11 +1179,7 @@
                   "type": {
                     "kind": "selector",
                     "prefix": "bson",
-                    "value": {
-                      "Name": "ObjectId",
-                      "NamePos": 69658,
-                      "Obj": null
-                    }
+                    "value": "ObjectId"
                   }
                 }
               },
@@ -1245,11 +1217,7 @@
                   "type": {
                     "kind": "selector",
                     "prefix": "bson",
-                    "value": {
-                      "Name": "ObjectId",
-                      "NamePos": 66966,
-                      "Obj": null
-                    }
+                    "value": "ObjectId"
                   }
                 },
                 "machine": {
@@ -1626,11 +1594,7 @@
                   "type": {
                     "kind": "selector",
                     "prefix": "bson",
-                    "value": {
-                      "Name": "Raw",
-                      "NamePos": 44783,
-                      "Obj": null
-                    }
+                    "value": "Raw"
                   }
                 }
               },
@@ -1659,11 +1623,7 @@
                   "type": {
                     "kind": "selector",
                     "prefix": "bson",
-                    "value": {
-                      "Name": "ObjectId",
-                      "NamePos": 74085,
-                      "Obj": null
-                    }
+                    "value": "ObjectId"
                   }
                 }
               },
@@ -1859,11 +1819,7 @@
                   "type": {
                     "kind": "selector",
                     "prefix": "b",
-                    "value": {
-                      "Name": "ObjectId",
-                      "NamePos": 388,
-                      "Obj": null
-                    }
+                    "value": "ObjectId"
                   }
                 },
                 "Name": {
@@ -1983,11 +1939,7 @@
                     "value": {
                       "kind": "selector",
                       "prefix": "bson",
-                      "value": {
-                        "Name": "ObjectId",
-                        "NamePos": 1013,
-                        "Obj": null
-                      }
+                      "value": "ObjectId"
                     }
                   }
                 },
@@ -2005,11 +1957,7 @@
                   "type": {
                     "kind": "selector",
                     "prefix": "bson",
-                    "value": {
-                      "Name": "ObjectId",
-                      "NamePos": 813,
-                      "Obj": null
-                    }
+                    "value": "ObjectId"
                   }
                 },
                 "Name": {
