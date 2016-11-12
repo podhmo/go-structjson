@@ -467,12 +467,12 @@ func isAliasDefinition(ob *ast.Object) bool {
 	if !ok {
 		return false
 	}
-
-	_, ok = node.Type.(*ast.Ident)
-	if !ok {
+	switch node.Type.(type) {
+	case *ast.Ident, *ast.SelectorExpr:
+		return true
+	default:
 		return false
 	}
-	return true
 }
 
 func isAliasValueDefinition(ob *ast.Object) bool {
