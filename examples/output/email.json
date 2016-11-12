@@ -1,0 +1,720 @@
+{
+  "module": {
+    "email": {
+      "file": {
+        "GOPATH/src/github.com/podhmo/go-structjson/examples/email/email.go": {
+          "alias": {
+            "Email": {
+              "candidates": null,
+              "name": "Email",
+              "original": {
+                "kind": "selector",
+                "prefix": "strfmt",
+                "value": "Email"
+              }
+            }
+          },
+          "import": {
+            "strfmt": {
+              "fullname": "github.com/go-openapi/strfmt",
+              "name": "strfmt"
+            }
+          },
+          "name": "GOPATH/src/github.com/podhmo/go-structjson/examples/email/email.go",
+          "struct": {}
+        }
+      },
+      "fullname": "github.com/podhmo/go-structjson/examples/email",
+      "name": "email"
+    },
+    "strfmt": {
+      "file": {
+        "GOPATH/src/github.com/go-openapi/strfmt/date.go": {
+          "alias": {
+            "Date": {
+              "candidates": null,
+              "name": "Date",
+              "original": {
+                "kind": "selector",
+                "prefix": "time",
+                "value": "Time"
+              }
+            }
+          },
+          "import": {
+            "time": {
+              "fullname": "time",
+              "name": "time"
+            }
+          },
+          "name": "GOPATH/src/github.com/go-openapi/strfmt/date.go",
+          "struct": {}
+        },
+        "GOPATH/src/github.com/go-openapi/strfmt/date_test.go": {
+          "alias": {},
+          "import": {},
+          "name": "GOPATH/src/github.com/go-openapi/strfmt/date_test.go",
+          "struct": {}
+        },
+        "GOPATH/src/github.com/go-openapi/strfmt/default.go": {
+          "alias": {
+            "CreditCard": {
+              "candidates": null,
+              "name": "CreditCard",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            },
+            "Email": {
+              "candidates": null,
+              "name": "Email",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            },
+            "HexColor": {
+              "candidates": null,
+              "name": "HexColor",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            },
+            "Hostname": {
+              "candidates": null,
+              "name": "Hostname",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            },
+            "IPv4": {
+              "candidates": null,
+              "name": "IPv4",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            },
+            "IPv6": {
+              "candidates": null,
+              "name": "IPv6",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            },
+            "ISBN": {
+              "candidates": null,
+              "name": "ISBN",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            },
+            "ISBN10": {
+              "candidates": null,
+              "name": "ISBN10",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            },
+            "ISBN13": {
+              "candidates": null,
+              "name": "ISBN13",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            },
+            "MAC": {
+              "candidates": null,
+              "name": "MAC",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            },
+            "Password": {
+              "candidates": null,
+              "name": "Password",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            },
+            "RGBColor": {
+              "candidates": null,
+              "name": "RGBColor",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            },
+            "SSN": {
+              "candidates": null,
+              "name": "SSN",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            },
+            "URI": {
+              "candidates": null,
+              "name": "URI",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            },
+            "UUID": {
+              "candidates": null,
+              "name": "UUID",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            },
+            "UUID3": {
+              "candidates": null,
+              "name": "UUID3",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            },
+            "UUID4": {
+              "candidates": null,
+              "name": "UUID4",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            },
+            "UUID5": {
+              "candidates": null,
+              "name": "UUID5",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            }
+          },
+          "import": {},
+          "name": "GOPATH/src/github.com/go-openapi/strfmt/default.go",
+          "struct": {}
+        },
+        "GOPATH/src/github.com/go-openapi/strfmt/default_test.go": {
+          "alias": {},
+          "import": {},
+          "name": "GOPATH/src/github.com/go-openapi/strfmt/default_test.go",
+          "struct": {}
+        },
+        "GOPATH/src/github.com/go-openapi/strfmt/doc.go": {
+          "alias": {},
+          "import": {},
+          "name": "GOPATH/src/github.com/go-openapi/strfmt/doc.go",
+          "struct": {}
+        },
+        "GOPATH/src/github.com/go-openapi/strfmt/duration.go": {
+          "alias": {
+            "Duration": {
+              "candidates": null,
+              "name": "Duration",
+              "original": {
+                "kind": "selector",
+                "prefix": "time",
+                "value": "Duration"
+              }
+            }
+          },
+          "import": {
+            "time": {
+              "fullname": "time",
+              "name": "time"
+            }
+          },
+          "name": "GOPATH/src/github.com/go-openapi/strfmt/duration.go",
+          "struct": {}
+        },
+        "GOPATH/src/github.com/go-openapi/strfmt/duration_test.go": {
+          "alias": {},
+          "import": {},
+          "name": "GOPATH/src/github.com/go-openapi/strfmt/duration_test.go",
+          "struct": {}
+        },
+        "GOPATH/src/github.com/go-openapi/strfmt/format.go": {
+          "alias": {},
+          "import": {
+            "reflect": {
+              "fullname": "reflect",
+              "name": "reflect"
+            },
+            "sync": {
+              "fullname": "sync",
+              "name": "sync"
+            }
+          },
+          "name": "GOPATH/src/github.com/go-openapi/strfmt/format.go",
+          "struct": {
+            "defaultFormats": {
+              "fields": {
+                "Mutex": {
+                  "embed": true,
+                  "name": "Mutex",
+                  "tags": {},
+                  "type": {
+                    "kind": "selector",
+                    "prefix": "sync",
+                    "value": "Mutex"
+                  }
+                },
+                "data": {
+                  "embed": false,
+                  "name": "data",
+                  "tags": {},
+                  "type": {
+                    "kind": "array",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "knownFormat"
+                    }
+                  }
+                },
+                "normalizeName": {
+                  "embed": false,
+                  "name": "normalizeName",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "NameNormalizer"
+                  }
+                }
+              },
+              "name": "defaultFormats"
+            },
+            "knownFormat": {
+              "fields": {
+                "Name": {
+                  "embed": false,
+                  "name": "Name",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "string"
+                  }
+                },
+                "OrigName": {
+                  "embed": false,
+                  "name": "OrigName",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "string"
+                  }
+                },
+                "Type": {
+                  "embed": false,
+                  "name": "Type",
+                  "tags": {},
+                  "type": {
+                    "kind": "selector",
+                    "prefix": "reflect",
+                    "value": "Type"
+                  }
+                },
+                "Validator": {
+                  "embed": false,
+                  "name": "Validator",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "Validator"
+                  }
+                }
+              },
+              "name": "knownFormat"
+            }
+          }
+        },
+        "GOPATH/src/github.com/go-openapi/strfmt/format_test.go": {
+          "alias": {
+            "bf": {
+              "candidates": null,
+              "name": "bf",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            },
+            "testFormat": {
+              "candidates": null,
+              "name": "testFormat",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            },
+            "tf2": {
+              "candidates": null,
+              "name": "tf2",
+              "original": {
+                "kind": "primitive",
+                "value": "string"
+              }
+            }
+          },
+          "import": {},
+          "name": "GOPATH/src/github.com/go-openapi/strfmt/format_test.go",
+          "struct": {
+            "testStruct": {
+              "fields": {
+                "B64": {
+                  "embed": false,
+                  "name": "B64",
+                  "tags": {
+                    "json": [
+                      "b64",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "Base64"
+                  }
+                },
+                "Creditcard": {
+                  "embed": false,
+                  "name": "Creditcard",
+                  "tags": {
+                    "json": [
+                      "creditcard",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "CreditCard"
+                  }
+                },
+                "D": {
+                  "embed": false,
+                  "name": "D",
+                  "tags": {
+                    "json": [
+                      "d",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "Date"
+                  }
+                },
+                "DT": {
+                  "embed": false,
+                  "name": "DT",
+                  "tags": {
+                    "json": [
+                      "dt",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "DateTime"
+                  }
+                },
+                "Dur": {
+                  "embed": false,
+                  "name": "Dur",
+                  "tags": {
+                    "json": [
+                      "dur",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "Duration"
+                  }
+                },
+                "Eml": {
+                  "embed": false,
+                  "name": "Eml",
+                  "tags": {
+                    "json": [
+                      "eml",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "Email"
+                  }
+                },
+                "Hexcolor": {
+                  "embed": false,
+                  "name": "Hexcolor",
+                  "tags": {
+                    "json": [
+                      "hexcolor",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "HexColor"
+                  }
+                },
+                "Hn": {
+                  "embed": false,
+                  "name": "Hn",
+                  "tags": {
+                    "json": [
+                      "hn",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "Hostname"
+                  }
+                },
+                "Ipv4": {
+                  "embed": false,
+                  "name": "Ipv4",
+                  "tags": {
+                    "json": [
+                      "ipv4",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "IPv4"
+                  }
+                },
+                "Ipv6": {
+                  "embed": false,
+                  "name": "Ipv6",
+                  "tags": {
+                    "json": [
+                      "ipv6",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "IPv6"
+                  }
+                },
+                "Isbn": {
+                  "embed": false,
+                  "name": "Isbn",
+                  "tags": {
+                    "json": [
+                      "isbn",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "ISBN"
+                  }
+                },
+                "Isbn10": {
+                  "embed": false,
+                  "name": "Isbn10",
+                  "tags": {
+                    "json": [
+                      "isbn10",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "ISBN10"
+                  }
+                },
+                "Isbn13": {
+                  "embed": false,
+                  "name": "Isbn13",
+                  "tags": {
+                    "json": [
+                      "isbn13",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "ISBN13"
+                  }
+                },
+                "Mac": {
+                  "embed": false,
+                  "name": "Mac",
+                  "tags": {
+                    "json": [
+                      "mac",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "MAC"
+                  }
+                },
+                "Pw": {
+                  "embed": false,
+                  "name": "Pw",
+                  "tags": {
+                    "json": [
+                      "pw",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "Password"
+                  }
+                },
+                "Rgbcolor": {
+                  "embed": false,
+                  "name": "Rgbcolor",
+                  "tags": {
+                    "json": [
+                      "rgbcolor",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "RGBColor"
+                  }
+                },
+                "Ssn": {
+                  "embed": false,
+                  "name": "Ssn",
+                  "tags": {
+                    "json": [
+                      "ssn",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "SSN"
+                  }
+                },
+                "Uri": {
+                  "embed": false,
+                  "name": "Uri",
+                  "tags": {
+                    "json": [
+                      "uri",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "URI"
+                  }
+                },
+                "Uuid": {
+                  "embed": false,
+                  "name": "Uuid",
+                  "tags": {
+                    "json": [
+                      "uuid",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "UUID"
+                  }
+                },
+                "Uuid3": {
+                  "embed": false,
+                  "name": "Uuid3",
+                  "tags": {
+                    "json": [
+                      "uuid3",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "UUID3"
+                  }
+                },
+                "Uuid4": {
+                  "embed": false,
+                  "name": "Uuid4",
+                  "tags": {
+                    "json": [
+                      "uuid4",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "UUID4"
+                  }
+                },
+                "Uuid5": {
+                  "embed": false,
+                  "name": "Uuid5",
+                  "tags": {
+                    "json": [
+                      "uuid5",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "primitive",
+                    "value": "UUID5"
+                  }
+                }
+              },
+              "name": "testStruct"
+            }
+          }
+        },
+        "GOPATH/src/github.com/go-openapi/strfmt/time.go": {
+          "alias": {
+            "DateTime": {
+              "candidates": null,
+              "name": "DateTime",
+              "original": {
+                "kind": "selector",
+                "prefix": "time",
+                "value": "Time"
+              }
+            }
+          },
+          "import": {
+            "time": {
+              "fullname": "time",
+              "name": "time"
+            }
+          },
+          "name": "GOPATH/src/github.com/go-openapi/strfmt/time.go",
+          "struct": {}
+        },
+        "GOPATH/src/github.com/go-openapi/strfmt/time_test.go": {
+          "alias": {},
+          "import": {},
+          "name": "GOPATH/src/github.com/go-openapi/strfmt/time_test.go",
+          "struct": {}
+        }
+      },
+      "fullname": "github.com/go-openapi/strfmt",
+      "name": "strfmt"
+    }
+  }
+}

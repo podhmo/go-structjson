@@ -487,6 +487,15 @@
                 "value": "string"
               }
             },
+            "getterSetterD": {
+              "candidates": null,
+              "name": "getterSetterD",
+              "original": {
+                "kind": "selector",
+                "prefix": "bson",
+                "value": "D"
+              }
+            },
             "getterSetterInt": {
               "candidates": null,
               "name": "getterSetterInt",

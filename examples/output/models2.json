@@ -487,6 +487,15 @@
                 "value": "string"
               }
             },
+            "getterSetterD": {
+              "candidates": null,
+              "name": "getterSetterD",
+              "original": {
+                "kind": "selector",
+                "prefix": "bson",
+                "value": "D"
+              }
+            },
             "getterSetterInt": {
               "candidates": null,
               "name": "getterSetterInt",
@@ -1774,16 +1783,16 @@
             "PersonGender": {
               "candidates": [
                 {
+                  "name": "PersonGenderUnknown",
+                  "value": "\"unknown\""
+                },
+                {
                   "name": "PersonGenderFemale",
                   "value": "\"female\""
                 },
                 {
                   "name": "PersonGendermale",
                   "value": "\"male\""
-                },
-                {
-                  "name": "PersonGenderUnknown",
-                  "value": "\"unknown\""
                 }
               ],
               "name": "PersonGender",
