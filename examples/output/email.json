@@ -15,9 +15,15 @@
             }
           },
           "import": {
+            "bson": {
+              "fullname": "gopkg.in/mgo.v2/bson",
+              "name": "bson",
+              "needparse": false
+            },
             "strfmt": {
               "fullname": "github.com/go-openapi/strfmt",
-              "name": "strfmt"
+              "name": "strfmt",
+              "needparse": true
             }
           },
           "name": "GOPATH/src/github.com/podhmo/go-structjson/examples/email/email.go",
@@ -42,9 +48,35 @@
             }
           },
           "import": {
+            "driver": {
+              "fullname": "database/sql/driver",
+              "name": "driver",
+              "needparse": false
+            },
+            "fmt": {
+              "fullname": "fmt",
+              "name": "fmt",
+              "needparse": false
+            },
+            "jlexer": {
+              "fullname": "github.com/mailru/easyjson/jlexer",
+              "name": "jlexer",
+              "needparse": false
+            },
+            "jwriter": {
+              "fullname": "github.com/mailru/easyjson/jwriter",
+              "name": "jwriter",
+              "needparse": false
+            },
+            "regexp": {
+              "fullname": "regexp",
+              "name": "regexp",
+              "needparse": false
+            },
             "time": {
               "fullname": "time",
-              "name": "time"
+              "name": "time",
+              "needparse": true
             }
           },
           "name": "GOPATH/src/github.com/go-openapi/strfmt/date.go",
@@ -52,7 +84,33 @@
         },
         "GOPATH/src/github.com/go-openapi/strfmt/date_test.go": {
           "alias": {},
-          "import": {},
+          "import": {
+            "assert": {
+              "fullname": "github.com/stretchr/testify/assert",
+              "name": "assert",
+              "needparse": false
+            },
+            "driver": {
+              "fullname": "database/sql/driver",
+              "name": "driver",
+              "needparse": false
+            },
+            "sql": {
+              "fullname": "database/sql",
+              "name": "sql",
+              "needparse": false
+            },
+            "testing": {
+              "fullname": "testing",
+              "name": "testing",
+              "needparse": false
+            },
+            "time": {
+              "fullname": "time",
+              "name": "time",
+              "needparse": false
+            }
+          },
           "name": "GOPATH/src/github.com/go-openapi/strfmt/date_test.go",
           "struct": {}
         },
@@ -203,13 +261,75 @@
               }
             }
           },
-          "import": {},
+          "import": {
+            "base64": {
+              "fullname": "encoding/base64",
+              "name": "base64",
+              "needparse": false
+            },
+            "driver": {
+              "fullname": "database/sql/driver",
+              "name": "driver",
+              "needparse": false
+            },
+            "fmt": {
+              "fullname": "fmt",
+              "name": "fmt",
+              "needparse": false
+            },
+            "govalidator": {
+              "fullname": "github.com/asaskevich/govalidator",
+              "name": "govalidator",
+              "needparse": false
+            },
+            "jlexer": {
+              "fullname": "github.com/mailru/easyjson/jlexer",
+              "name": "jlexer",
+              "needparse": false
+            },
+            "jwriter": {
+              "fullname": "github.com/mailru/easyjson/jwriter",
+              "name": "jwriter",
+              "needparse": false
+            },
+            "regexp": {
+              "fullname": "regexp",
+              "name": "regexp",
+              "needparse": false
+            },
+            "strings": {
+              "fullname": "strings",
+              "name": "strings",
+              "needparse": false
+            },
+            "url": {
+              "fullname": "net/url",
+              "name": "url",
+              "needparse": false
+            }
+          },
           "name": "GOPATH/src/github.com/go-openapi/strfmt/default.go",
           "struct": {}
         },
         "GOPATH/src/github.com/go-openapi/strfmt/default_test.go": {
           "alias": {},
-          "import": {},
+          "import": {
+            "assert": {
+              "fullname": "github.com/stretchr/testify/assert",
+              "name": "assert",
+              "needparse": false
+            },
+            "testing": {
+              "fullname": "testing",
+              "name": "testing",
+              "needparse": false
+            },
+            "uuid": {
+              "fullname": "github.com/pborman/uuid",
+              "name": "uuid",
+              "needparse": false
+            }
+          },
           "name": "GOPATH/src/github.com/go-openapi/strfmt/default_test.go",
           "struct": {}
         },
@@ -232,9 +352,45 @@
             }
           },
           "import": {
+            "driver": {
+              "fullname": "database/sql/driver",
+              "name": "driver",
+              "needparse": false
+            },
+            "fmt": {
+              "fullname": "fmt",
+              "name": "fmt",
+              "needparse": false
+            },
+            "jlexer": {
+              "fullname": "github.com/mailru/easyjson/jlexer",
+              "name": "jlexer",
+              "needparse": false
+            },
+            "jwriter": {
+              "fullname": "github.com/mailru/easyjson/jwriter",
+              "name": "jwriter",
+              "needparse": false
+            },
+            "regexp": {
+              "fullname": "regexp",
+              "name": "regexp",
+              "needparse": false
+            },
+            "strconv": {
+              "fullname": "strconv",
+              "name": "strconv",
+              "needparse": false
+            },
+            "strings": {
+              "fullname": "strings",
+              "name": "strings",
+              "needparse": false
+            },
             "time": {
               "fullname": "time",
-              "name": "time"
+              "name": "time",
+              "needparse": true
             }
           },
           "name": "GOPATH/src/github.com/go-openapi/strfmt/duration.go",
@@ -242,20 +398,63 @@
         },
         "GOPATH/src/github.com/go-openapi/strfmt/duration_test.go": {
           "alias": {},
-          "import": {},
+          "import": {
+            "assert": {
+              "fullname": "github.com/stretchr/testify/assert",
+              "name": "assert",
+              "needparse": false
+            },
+            "testing": {
+              "fullname": "testing",
+              "name": "testing",
+              "needparse": false
+            },
+            "time": {
+              "fullname": "time",
+              "name": "time",
+              "needparse": false
+            }
+          },
           "name": "GOPATH/src/github.com/go-openapi/strfmt/duration_test.go",
           "struct": {}
         },
         "GOPATH/src/github.com/go-openapi/strfmt/format.go": {
           "alias": {},
           "import": {
+            "encoding": {
+              "fullname": "encoding",
+              "name": "encoding",
+              "needparse": false
+            },
+            "errors": {
+              "fullname": "github.com/go-openapi/errors",
+              "name": "errors",
+              "needparse": false
+            },
+            "mapstructure": {
+              "fullname": "github.com/mitchellh/mapstructure",
+              "name": "mapstructure",
+              "needparse": false
+            },
             "reflect": {
               "fullname": "reflect",
-              "name": "reflect"
+              "name": "reflect",
+              "needparse": true
+            },
+            "strings": {
+              "fullname": "strings",
+              "name": "strings",
+              "needparse": false
             },
             "sync": {
               "fullname": "sync",
-              "name": "sync"
+              "name": "sync",
+              "needparse": true
+            },
+            "time": {
+              "fullname": "time",
+              "name": "time",
+              "needparse": false
             }
           },
           "name": "GOPATH/src/github.com/go-openapi/strfmt/format.go",
@@ -367,7 +566,33 @@
               }
             }
           },
-          "import": {},
+          "import": {
+            "assert": {
+              "fullname": "github.com/stretchr/testify/assert",
+              "name": "assert",
+              "needparse": false
+            },
+            "mapstructure": {
+              "fullname": "github.com/mitchellh/mapstructure",
+              "name": "mapstructure",
+              "needparse": false
+            },
+            "strings": {
+              "fullname": "strings",
+              "name": "strings",
+              "needparse": false
+            },
+            "testing": {
+              "fullname": "testing",
+              "name": "testing",
+              "needparse": false
+            },
+            "time": {
+              "fullname": "time",
+              "name": "time",
+              "needparse": false
+            }
+          },
           "name": "GOPATH/src/github.com/go-openapi/strfmt/format_test.go",
           "struct": {
             "testStruct": {
@@ -698,9 +923,40 @@
             }
           },
           "import": {
+            "driver": {
+              "fullname": "database/sql/driver",
+              "name": "driver",
+              "needparse": false
+            },
+            "fmt": {
+              "fullname": "fmt",
+              "name": "fmt",
+              "needparse": false
+            },
+            "jlexer": {
+              "fullname": "github.com/mailru/easyjson/jlexer",
+              "name": "jlexer",
+              "needparse": false
+            },
+            "jwriter": {
+              "fullname": "github.com/mailru/easyjson/jwriter",
+              "name": "jwriter",
+              "needparse": false
+            },
+            "regexp": {
+              "fullname": "regexp",
+              "name": "regexp",
+              "needparse": false
+            },
+            "strings": {
+              "fullname": "strings",
+              "name": "strings",
+              "needparse": false
+            },
             "time": {
               "fullname": "time",
-              "name": "time"
+              "name": "time",
+              "needparse": true
             }
           },
           "name": "GOPATH/src/github.com/go-openapi/strfmt/time.go",
@@ -708,7 +964,28 @@
         },
         "GOPATH/src/github.com/go-openapi/strfmt/time_test.go": {
           "alias": {},
-          "import": {},
+          "import": {
+            "assert": {
+              "fullname": "github.com/stretchr/testify/assert",
+              "name": "assert",
+              "needparse": false
+            },
+            "bytes": {
+              "fullname": "bytes",
+              "name": "bytes",
+              "needparse": false
+            },
+            "testing": {
+              "fullname": "testing",
+              "name": "testing",
+              "needparse": false
+            },
+            "time": {
+              "fullname": "time",
+              "name": "time",
+              "needparse": false
+            }
+          },
           "name": "GOPATH/src/github.com/go-openapi/strfmt/time_test.go",
           "struct": {}
         }

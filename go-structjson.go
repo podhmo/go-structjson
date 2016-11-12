@@ -193,7 +193,9 @@ func findType(r *Result, node ast.Node) Type {
 		m["kind"] = "selector"
 		m["prefix"] = node.X.(*ast.Ident).Name
 		m["value"] = node.Sel.Name
-		r.ImportsMap[node.X.(*ast.Ident).Name] = &ImportDefinition{} // dummy
+		if def, exists := r.ImportsMap[node.X.(*ast.Ident).Name]; exists {
+			def.NeedParse = true
+		}
 	case *ast.FuncType:
 		m["kind"] = "func"
 		m["args"] = findType(r, node.Params)
@@ -389,12 +391,31 @@ type AliasValue struct {
 }
 
 type ImportDefinition struct {
-	Name     string `json:"name"`
-	FullName string `json:"fullname"`
+	Name      string `json:"name"`
+	FullName  string `json:"fullname"`
+	NeedParse bool   `json:"needparse"`
 }
 
 func CollectResult(name string, scope *ast.Scope, imports []*ast.ImportSpec) (*Result, error) {
 	r := NewResult(name)
+	for _, im := range imports {
+		fullname, err := strconv.Unquote(im.Path.Value)
+		if err != nil {
+			return r, err
+		}
+		var name string
+		if im.Name == nil {
+			name = path.Base(fullname)
+		} else {
+			name = im.Name.Name
+		}
+		r.ImportsMap[name] = &ImportDefinition{
+			Name:      name,
+			FullName:  fullname,
+			NeedParse: false,
+		}
+	}
+
 	for _, ob := range scope.Objects {
 		anyFound := false
 		if isStructDefinition(ob) {
@@ -421,22 +442,6 @@ func CollectResult(name string, scope *ast.Scope, imports []*ast.ImportSpec) (*R
 		}
 		if !anyFound {
 			// fmt.Println(ob.Name)
-		}
-	}
-	for _, im := range imports {
-		fullname, err := strconv.Unquote(im.Path.Value)
-		if err != nil {
-			return r, err
-		}
-		var name string
-		if im.Name == nil {
-			name = path.Base(fullname)
-		} else {
-			name = im.Name.Name
-		}
-		if def, exists := r.ImportsMap[name]; exists {
-			def.FullName = fullname
-			def.Name = name
 		}
 	}
 	return r, nil

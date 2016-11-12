@@ -51,7 +51,8 @@ func parse(world *structjson.World, fpath string, used map[string]struct{}) erro
 			}
 			module.Files[fname] = result
 			for _, im := range result.ImportsMap {
-				if strings.Contains(im.FullName, "/") {
+				if im.NeedParse && strings.Contains(im.FullName, "/") {
+					// TODO: standard library
 					// pseudo imports
 					dpath := path.Join(gosrc, im.FullName)
 					if _, err := os.Stat(dpath); err == nil {
