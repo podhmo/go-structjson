@@ -71,6 +71,21 @@ func (r *Result) AddStruct(ob *ast.Object) (*StructDefinition, error) {
 	return item, err
 }
 
+func (r *Result) AddInterface(ob *ast.Object) (*StructDefinition, error) {
+	// FIXME: not support seriously
+	item, exists := r.StructMap[ob.Name]
+	if !exists {
+		item = &StructDefinition{}
+	}
+	item.rawDef = ob
+	item.Name = ob.Name
+	r.StructMap[ob.Name] = item
+	// fields, err := findFields(r, ob.Decl.(ast.Node))
+	// item.Fields = fields
+	item.Fields = map[string]*Field{}
+	return item, nil
+}
+
 type nameVisitor struct{ Found string }
 
 func (v *nameVisitor) Visit(node ast.Node) ast.Visitor {
@@ -425,6 +440,14 @@ func CollectResult(name string, scope *ast.Scope, imports []*ast.ImportSpec) (*R
 				return r, err
 			}
 		}
+		if isInterfaceDefinition(ob) {
+			// work-around
+			anyFound = true
+			_, err := r.AddInterface(ob)
+			if err != nil {
+				return r, err
+			}
+		}
 		if isAliasDefinition(ob) {
 			anyFound = true
 			_, err := r.AddAlias(ob)
@@ -445,6 +468,23 @@ func CollectResult(name string, scope *ast.Scope, imports []*ast.ImportSpec) (*R
 		}
 	}
 	return r, nil
+}
+
+func isInterfaceDefinition(ob *ast.Object) bool {
+	if ob.Kind != ast.Typ {
+		return false
+	}
+
+	node, ok := ob.Decl.(*ast.TypeSpec)
+	if !ok {
+		return false
+	}
+
+	_, ok = node.Type.(*ast.InterfaceType)
+	if !ok {
+		return false
+	}
+	return true
 }
 
 func isStructDefinition(ob *ast.Object) bool {

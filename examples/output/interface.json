@@ -1,0 +1,21 @@
+{
+  "module": {
+    "i": {
+      "file": {
+        "GOPATH/src/github.com/podhmo/go-structjson/examples/interface/interface.go": {
+          "alias": {},
+          "import": {},
+          "name": "GOPATH/src/github.com/podhmo/go-structjson/examples/interface/interface.go",
+          "struct": {
+            "I": {
+              "fields": {},
+              "name": "I"
+            }
+          }
+        }
+      },
+      "fullname": "github.com/podhmo/go-structjson/examples/interface",
+      "name": "i"
+    }
+  }
+}
