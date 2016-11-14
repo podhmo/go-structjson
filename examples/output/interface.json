@@ -5,13 +5,13 @@
         "GOPATH/src/github.com/podhmo/go-structjson/examples/interface/interface.go": {
           "alias": {},
           "import": {},
-          "name": "GOPATH/src/github.com/podhmo/go-structjson/examples/interface/interface.go",
-          "struct": {
+          "interface": {
             "I": {
-              "fields": {},
               "name": "I"
             }
-          }
+          },
+          "name": "GOPATH/src/github.com/podhmo/go-structjson/examples/interface/interface.go",
+          "struct": {}
         }
       },
       "fullname": "github.com/podhmo/go-structjson/examples/interface",

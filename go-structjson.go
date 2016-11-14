@@ -30,28 +30,20 @@ func NewModule(name string) *Module {
 	return &Module{Name: name, Files: make(map[string]*Result)}
 }
 
-// Kind : kind of detectResult
-type Kind string
-
-// kind candidates
-const (
-	KindAlias           = Kind("alias")
-	KindAliasCandidates = Kind("alias-candidates")
-	KindStruct          = Kind("struct")
-)
-
 type Result struct {
-	Name          string                       `json:"name"`
-	AliasMap      map[string]*AliasDefinition  `json:"alias"`
-	StructMap     map[string]*StructDefinition `json:"struct"`
-	MaybeAliasses []*AliasValue                `json:"-"`
-	ImportsMap    map[string]*ImportDefinition `json:"import"`
+	Name          string                          `json:"name"`
+	AliasMap      map[string]*AliasDefinition     `json:"alias"`
+	StructMap     map[string]*StructDefinition    `json:"struct"`
+	InterfaceMap  map[string]*InterfaceDefinition `json:"interface"`
+	MaybeAliasses []*AliasValue                   `json:"-"`
+	ImportsMap    map[string]*ImportDefinition    `json:"import"`
 }
 
 func NewResult(name string) *Result {
 	return &Result{
 		Name:          name,
 		StructMap:     make(map[string]*StructDefinition),
+		InterfaceMap:  make(map[string]*InterfaceDefinition),
 		AliasMap:      make(map[string]*AliasDefinition),
 		MaybeAliasses: []*AliasValue{},
 		ImportsMap:    make(map[string]*ImportDefinition),
@@ -71,18 +63,15 @@ func (r *Result) AddStruct(ob *ast.Object) (*StructDefinition, error) {
 	return item, err
 }
 
-func (r *Result) AddInterface(ob *ast.Object) (*StructDefinition, error) {
+func (r *Result) AddInterface(ob *ast.Object) (*InterfaceDefinition, error) {
 	// FIXME: not support seriously
-	item, exists := r.StructMap[ob.Name]
+	item, exists := r.InterfaceMap[ob.Name]
 	if !exists {
-		item = &StructDefinition{}
+		item = &InterfaceDefinition{}
 	}
 	item.rawDef = ob
 	item.Name = ob.Name
-	r.StructMap[ob.Name] = item
-	// fields, err := findFields(r, ob.Decl.(ast.Node))
-	// item.Fields = fields
-	item.Fields = map[string]*Field{}
+	r.InterfaceMap[ob.Name] = item
 	return item, nil
 }
 
@@ -388,6 +377,12 @@ type StructDefinition struct {
 	Name   string `json:"name"`
 	rawDef *ast.Object
 	Fields map[string]*Field `json:"fields"`
+}
+
+type InterfaceDefinition struct {
+	Name   string `json:"name"`
+	rawDef *ast.Object
+	// TODO: methods
 }
 
 type AliasDefinition struct {
