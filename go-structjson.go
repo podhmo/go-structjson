@@ -142,7 +142,7 @@ func parseTags(node *ast.Field) map[string][]string {
 }
 
 func (v *fieldsVisitor) visitField(node *ast.Field) error {
-	typ := findType(v.Result, node.Type)
+	typ := FindType(v.Result, node.Type)
 	if len(node.Names) == 0 {
 		name := findName(node.Type)
 		v.Found[name] = &Field{
@@ -171,7 +171,7 @@ func (v *fieldsVisitor) visitField(node *ast.Field) error {
 	return nil
 }
 
-func findType(r *Result, node ast.Node) Type {
+func FindType(r *Result, node ast.Node) Type {
 	m := make(map[string]Type)
 	switch node := node.(type) {
 	case *ast.Ident:
@@ -179,20 +179,20 @@ func findType(r *Result, node ast.Node) Type {
 		m["value"] = node.Name
 	case *ast.ArrayType:
 		m["kind"] = "array"
-		m["value"] = findType(r, node.Elt)
+		m["value"] = FindType(r, node.Elt)
 	case *ast.MapType:
 		m["kind"] = "map"
-		m["key"] = findType(r, node.Key)
-		m["value"] = findType(r, node.Value)
+		m["key"] = FindType(r, node.Key)
+		m["value"] = FindType(r, node.Value)
 	case *ast.StructType:
 		m["kind"] = "struct"
-		m["fields"] = findType(r, node.Fields)
+		m["fields"] = FindType(r, node.Fields)
 	case *ast.InterfaceType:
 		m["kind"] = "interface"
-		m["methods"] = findType(r, node.Methods)
+		m["methods"] = FindType(r, node.Methods)
 	case *ast.StarExpr:
 		m["kind"] = "pointer"
-		m["value"] = findType(r, node.X)
+		m["value"] = FindType(r, node.X)
 	case *ast.SelectorExpr:
 		m["kind"] = "selector"
 		m["prefix"] = node.X.(*ast.Ident).Name
@@ -202,14 +202,14 @@ func findType(r *Result, node ast.Node) Type {
 		}
 	case *ast.FuncType:
 		m["kind"] = "func"
-		m["args"] = findType(r, node.Params)
-		m["results"] = findType(r, node.Results)
+		m["args"] = FindType(r, node.Params)
+		m["results"] = FindType(r, node.Results)
 	case *ast.TypeSpec:
-		return findType(r, node.Type)
+		return FindType(r, node.Type)
 	case *ast.FieldList:
 		args := make([]Type, len(node.List))
 		for i, arg := range node.List {
-			args[i] = findType(r, arg.Type)
+			args[i] = FindType(r, arg.Type)
 		}
 		return args
 	default:
@@ -236,7 +236,7 @@ func (r *Result) AddAlias(ob *ast.Object) (*AliasDefinition, error) {
 	item.rawDef = ob
 	item.Name = ob.Name
 	if ob.Decl != nil {
-		item.Original = findType(r, ob.Decl.(*ast.TypeSpec))
+		item.Original = FindType(r, ob.Decl.(*ast.TypeSpec))
 	}
 	r.AliasMap[ob.Name] = item
 	if !exists {

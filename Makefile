@@ -1,5 +1,6 @@
 install:
-	go get -v github.com/podhmo/go-structjson/cmd/go-structjson
+	go install -v github.com/podhmo/go-structjson/cmd/go-structjson
+	go install -v github.com/podhmo/go-structjson/cmd/go-funcjson
 
 example: example1 example2 example3 example4
 
