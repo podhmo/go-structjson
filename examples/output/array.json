@@ -1,0 +1,41 @@
+{
+  "module": {
+    "array": {
+      "file": {
+        "GOPATH/src/github.com/podhmo/go-structjson/examples/array/array.go": {
+          "alias": {},
+          "import": {},
+          "interface": {},
+          "name": "GOPATH/src/github.com/podhmo/go-structjson/examples/array/array.go",
+          "struct": {
+            "Keyword": {
+              "fields": {
+                "Id": {
+                  "embed": false,
+                  "name": "Id",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "string"
+                  }
+                },
+                "Name": {
+                  "embed": false,
+                  "name": "Name",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "string"
+                  }
+                }
+              },
+              "name": "Keyword"
+            }
+          }
+        }
+      },
+      "fullname": "github.com/podhmo/go-structjson/examples/array",
+      "name": "array"
+    }
+  }
+}

@@ -508,7 +508,7 @@ func isAliasDefinition(ob *ast.Object) bool {
 		return false
 	}
 	switch node.Type.(type) {
-	case *ast.Ident, *ast.SelectorExpr:
+	case *ast.Ident, *ast.SelectorExpr, *ast.ArrayType, *ast.MapType:
 		return true
 	default:
 		return false

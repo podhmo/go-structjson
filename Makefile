@@ -14,3 +14,6 @@ example3:
 
 example4:
 	go-structjson --target ./examples/interface/  | jq . -S | sed "s@`echo $$GOPATH`@GOPATH@g;" | tee ./examples/output/interface.json
+
+example5:
+	go-structjson --target ./examples/array/  | jq . -S | sed "s@`echo $$GOPATH`@GOPATH@g;" | tee ./examples/output/array.json
