@@ -36,6 +36,7 @@ func (app *App) parse(world *structjson.World, fpath string) error {
 	if err != nil {
 		return err
 	}
+
 	gosrc := path.Join(app.gopath, "src")
 	for _, pkg := range pkgs {
 		module := structjson.NewModule(pkg.Name)
@@ -51,6 +52,11 @@ func (app *App) parse(world *structjson.World, fpath string) error {
 				}
 
 			}
+			// skip test code
+			if strings.HasSuffix(fname, "_test.go") {
+				continue
+			}
+
 			result, err := structjson.CollectResult(fname, f.Scope, f.Imports)
 			if err != nil {
 				return err
