@@ -8,6 +8,7 @@ import (
 	"path"
 	"path/filepath"
 	"runtime"
+	"sort"
 	"strings"
 
 	structjson "github.com/podhmo/go-structjson"
@@ -18,7 +19,7 @@ import (
 
 var target = flag.String("target", "", "target")
 var verbose = flag.Bool("verbose", false, "verbose")
-var exclude = flag.String("exclude", "fmt,log,reflect,go/ast,unsafe,html/template,text/template,encoding/xml,syscall,windows,encoding/binary,sync,os,flag,net/http,go/format,encoding/json,sys,bufio,bytes/buffer,unicode", "")
+var exclude = flag.String("exclude", "fmt,log,reflect,go/ast,unsafe,html/template,text/template,encoding/xml,syscall,windows,encoding/binary,sync,os,flag,net/http,go/format,encoding/json,sys,bufio,bytes/buffer,unicode,sync/atomic", "")
 
 type App struct {
 	gopath     string
@@ -50,15 +51,40 @@ func (app *App) parse(world *structjson.World, fpath string, pkgName string, dep
 		return err
 	}
 
-	gosrc := path.Join(app.gopath, "src")
+	pkgNameList := make([]string, len(pkgs))
+	i := 0
 	for _, pkg := range pkgs {
+		pkgNameList[i] = pkg.Name
+		i++
+	}
+	sort.Sort(sort.StringSlice(pkgNameList))
+
+	gosrc := path.Join(app.gopath, "src")
+	for _, pkgName := range pkgNameList {
+		pkg := pkgs[pkgName]
+
+		// skip main
+		if pkg.Name == "main" {
+			continue
+		}
+
 		module := structjson.NewModule(pkg.Name)
 		world.Modules[pkg.Name] = module
-		for fname, f := range pkg.Files {
+
+		fileNameList := make([]string, len(pkg.Files))
+		i := 0
+		for fname := range pkg.Files {
+			fileNameList[i] = fname
+			i++
+		}
+		sort.Sort(sort.StringSlice(fileNameList))
+
+		for _, fname := range fileNameList {
+			f := pkg.Files[fname]
 			if module.FullName == "" {
 				if strings.HasPrefix(fname, app.goroot) {
 					module.FullName = module.Name
-				} else if strings.HasPrefix(fname, gosrc) {
+				} else {
 					if stat, err := os.Stat(fname); err == nil {
 						if stat.IsDir() {
 							module.FullName = fname[len(gosrc)+1:]

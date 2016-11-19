@@ -6,10 +6,10 @@ import (
 	"go/parser"
 	"go/token"
 	"os"
-	"strings"
-
 	"path"
+	"sort"
 	"strconv"
+	"strings"
 
 	"github.com/davecgh/go-spew/spew"
 )
@@ -30,6 +30,18 @@ func NewModule(name string) *Module {
 	return &Module{Name: name, Files: make(map[string]*Result)}
 }
 
+type indexAliasValues []*AliasValue
+
+func (p indexAliasValues) Len() int           { return len(p) }
+func (p indexAliasValues) Less(i, j int) bool { return p[i].i < p[j].i }
+func (p indexAliasValues) Swap(i, j int)      { p[i], p[j] = p[j], p[i] }
+
+type nameAliasValues []*AliasValue
+
+func (p nameAliasValues) Len() int           { return len(p) }
+func (p nameAliasValues) Less(i, j int) bool { return p[i].Name < p[j].Name }
+func (p nameAliasValues) Swap(i, j int)      { p[i], p[j] = p[j], p[i] }
+
 type Result struct {
 	Name          string                          `json:"name"`
 	AliasMap      map[string]*AliasDefinition     `json:"alias,omitempty"`
@@ -37,6 +49,7 @@ type Result struct {
 	InterfaceMap  map[string]*InterfaceDefinition `json:"interface,omitempty"`
 	MaybeAliasses []*AliasValue                   `json:"-"`
 	ImportsMap    map[string]*ImportDefinition    `json:"import,omitempty"`
+	i             int
 }
 
 func NewResult(name string) *Result {
@@ -340,7 +353,8 @@ func (r *Result) AddAliasValue(ob *ast.Object) (*AliasDefinition, error) {
 			if lit == nil {
 				return nil, fmt.Errorf("not found: %s", ob.Name)
 			}
-			value = &AliasValue{TypeName: typeName, Name: ob.Name, Value: lit.Value, rawDef: ob}
+			r.i++
+			value = &AliasValue{TypeName: typeName, Name: ob.Name, Value: lit.Value, rawDef: ob, i: r.i}
 			break
 		}
 	case nil:
@@ -370,7 +384,8 @@ func (r *Result) AddAliasValue(ob *ast.Object) (*AliasDefinition, error) {
 				fmt.Fprintf(os.Stderr, "const %s is complex definition. skip..\n", ob.Name)
 				return nil, nil
 			}
-			value = &AliasValue{TypeName: fident.Name, Name: ob.Name, Value: lit.Value, rawDef: ob}
+			r.i++
+			value = &AliasValue{TypeName: fident.Name, Name: ob.Name, Value: lit.Value, rawDef: ob, i: r.i}
 			break
 		}
 	}
@@ -415,7 +430,8 @@ type AliasDefinition struct {
 }
 
 type AliasValue struct {
-	TypeName string      `json:"-"`
+	TypeName string `json:"-"`
+	i        int
 	Name     string      `json:"name"`
 	Value    interface{} `json:"value"`
 	rawDef   *ast.Object
@@ -483,6 +499,9 @@ func CollectResult(name string, scope *ast.Scope, imports []*ast.ImportSpec) (*R
 		if !anyFound {
 			// fmt.Println(ob.Name)
 		}
+	}
+	for _, alias := range r.AliasMap {
+		sort.Sort(nameAliasValues(alias.Candidates))
 	}
 	return r, nil
 }
