@@ -26,8 +26,7 @@
               "needparse": true
             }
           },
-          "name": "GOPATH/src/github.com/podhmo/go-structjson/examples/email/email.go",
-          "struct": {}
+          "name": "GOPATH/src/github.com/podhmo/go-structjson/examples/email/email.go"
         }
       },
       "fullname": "github.com/podhmo/go-structjson/examples/email",
@@ -79,11 +78,9 @@
               "needparse": true
             }
           },
-          "name": "GOPATH/src/github.com/go-openapi/strfmt/date.go",
-          "struct": {}
+          "name": "GOPATH/src/github.com/go-openapi/strfmt/date.go"
         },
         "GOPATH/src/github.com/go-openapi/strfmt/date_test.go": {
-          "alias": {},
           "import": {
             "assert": {
               "fullname": "github.com/stretchr/testify/assert",
@@ -111,11 +108,21 @@
               "needparse": false
             }
           },
-          "name": "GOPATH/src/github.com/go-openapi/strfmt/date_test.go",
-          "struct": {}
+          "name": "GOPATH/src/github.com/go-openapi/strfmt/date_test.go"
         },
         "GOPATH/src/github.com/go-openapi/strfmt/default.go": {
           "alias": {
+            "Base64": {
+              "candidates": null,
+              "name": "Base64",
+              "original": {
+                "kind": "array",
+                "value": {
+                  "kind": "primitive",
+                  "value": "byte"
+                }
+              }
+            },
             "CreditCard": {
               "candidates": null,
               "name": "CreditCard",
@@ -308,11 +315,9 @@
               "needparse": false
             }
           },
-          "name": "GOPATH/src/github.com/go-openapi/strfmt/default.go",
-          "struct": {}
+          "name": "GOPATH/src/github.com/go-openapi/strfmt/default.go"
         },
         "GOPATH/src/github.com/go-openapi/strfmt/default_test.go": {
-          "alias": {},
           "import": {
             "assert": {
               "fullname": "github.com/stretchr/testify/assert",
@@ -330,14 +335,10 @@
               "needparse": false
             }
           },
-          "name": "GOPATH/src/github.com/go-openapi/strfmt/default_test.go",
-          "struct": {}
+          "name": "GOPATH/src/github.com/go-openapi/strfmt/default_test.go"
         },
         "GOPATH/src/github.com/go-openapi/strfmt/doc.go": {
-          "alias": {},
-          "import": {},
-          "name": "GOPATH/src/github.com/go-openapi/strfmt/doc.go",
-          "struct": {}
+          "name": "GOPATH/src/github.com/go-openapi/strfmt/doc.go"
         },
         "GOPATH/src/github.com/go-openapi/strfmt/duration.go": {
           "alias": {
@@ -393,11 +394,9 @@
               "needparse": true
             }
           },
-          "name": "GOPATH/src/github.com/go-openapi/strfmt/duration.go",
-          "struct": {}
+          "name": "GOPATH/src/github.com/go-openapi/strfmt/duration.go"
         },
         "GOPATH/src/github.com/go-openapi/strfmt/duration_test.go": {
-          "alias": {},
           "import": {
             "assert": {
               "fullname": "github.com/stretchr/testify/assert",
@@ -415,11 +414,9 @@
               "needparse": false
             }
           },
-          "name": "GOPATH/src/github.com/go-openapi/strfmt/duration_test.go",
-          "struct": {}
+          "name": "GOPATH/src/github.com/go-openapi/strfmt/duration_test.go"
         },
         "GOPATH/src/github.com/go-openapi/strfmt/format.go": {
-          "alias": {},
           "import": {
             "encoding": {
               "fullname": "encoding",
@@ -455,6 +452,14 @@
               "fullname": "time",
               "name": "time",
               "needparse": false
+            }
+          },
+          "interface": {
+            "Format": {
+              "name": "Format"
+            },
+            "Registry": {
+              "name": "Registry"
             }
           },
           "name": "GOPATH/src/github.com/go-openapi/strfmt/format.go",
@@ -959,11 +964,9 @@
               "needparse": true
             }
           },
-          "name": "GOPATH/src/github.com/go-openapi/strfmt/time.go",
-          "struct": {}
+          "name": "GOPATH/src/github.com/go-openapi/strfmt/time.go"
         },
         "GOPATH/src/github.com/go-openapi/strfmt/time_test.go": {
-          "alias": {},
           "import": {
             "assert": {
               "fullname": "github.com/stretchr/testify/assert",
@@ -986,8 +989,7 @@
               "needparse": false
             }
           },
-          "name": "GOPATH/src/github.com/go-openapi/strfmt/time_test.go",
-          "struct": {}
+          "name": "GOPATH/src/github.com/go-openapi/strfmt/time_test.go"
         }
       },
       "fullname": "github.com/go-openapi/strfmt",

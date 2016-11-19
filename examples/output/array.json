@@ -3,9 +3,19 @@
     "array": {
       "file": {
         "GOPATH/src/github.com/podhmo/go-structjson/examples/array/array.go": {
-          "alias": {},
-          "import": {},
-          "interface": {},
+          "alias": {
+            "Keywords": {
+              "candidates": null,
+              "name": "Keywords",
+              "original": {
+                "kind": "array",
+                "value": {
+                  "kind": "primitive",
+                  "value": "Keyword"
+                }
+              }
+            }
+          },
           "name": "GOPATH/src/github.com/podhmo/go-structjson/examples/array/array.go",
           "struct": {
             "Keyword": {

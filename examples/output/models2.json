@@ -4,6 +4,32 @@
       "file": {
         "GOPATH/src/gopkg.in/mgo.v2/bson/bson.go": {
           "alias": {
+            "D": {
+              "candidates": null,
+              "name": "D",
+              "original": {
+                "kind": "array",
+                "value": {
+                  "kind": "primitive",
+                  "value": "DocElem"
+                }
+              }
+            },
+            "M": {
+              "candidates": null,
+              "name": "M",
+              "original": {
+                "key": {
+                  "kind": "primitive",
+                  "value": "string"
+                },
+                "kind": "map",
+                "value": {
+                  "kind": "interface",
+                  "methods": []
+                }
+              }
+            },
             "MongoTimestamp": {
               "candidates": null,
               "name": "MongoTimestamp",
@@ -18,6 +44,17 @@
               "original": {
                 "kind": "primitive",
                 "value": "string"
+              }
+            },
+            "RawD": {
+              "candidates": null,
+              "name": "RawD",
+              "original": {
+                "kind": "array",
+                "value": {
+                  "kind": "primitive",
+                  "value": "RawDocElem"
+                }
               }
             },
             "Symbol": {
@@ -125,6 +162,14 @@
               "fullname": "time",
               "name": "time",
               "needparse": false
+            }
+          },
+          "interface": {
+            "Getter": {
+              "name": "Getter"
+            },
+            "Setter": {
+              "name": "Setter"
             }
           },
           "name": "GOPATH/src/gopkg.in/mgo.v2/bson/bson.go",
@@ -432,7 +477,6 @@
           }
         },
         "GOPATH/src/gopkg.in/mgo.v2/bson/decimal.go": {
-          "alias": {},
           "import": {
             "fmt": {
               "fullname": "fmt",
@@ -478,7 +522,6 @@
           }
         },
         "GOPATH/src/gopkg.in/mgo.v2/bson/decode.go": {
-          "alias": {},
           "import": {
             "fmt": {
               "fullname": "fmt",
@@ -557,7 +600,6 @@
           }
         },
         "GOPATH/src/gopkg.in/mgo.v2/bson/encode.go": {
-          "alias": {},
           "import": {
             "fmt": {
               "fullname": "fmt",
@@ -617,7 +659,6 @@
           }
         },
         "GOPATH/src/gopkg.in/mgo.v2/bson/json.go": {
-          "alias": {},
           "import": {
             "base64": {
               "fullname": "encoding/base64",
@@ -650,8 +691,7 @@
               "needparse": false
             }
           },
-          "name": "GOPATH/src/gopkg.in/mgo.v2/bson/json.go",
-          "struct": {}
+          "name": "GOPATH/src/gopkg.in/mgo.v2/bson/json.go"
         }
       },
       "fullname": "gopkg.in/mgo.v2/bson",
@@ -667,6 +707,56 @@
               "original": {
                 "kind": "primitive",
                 "value": "bool"
+              }
+            },
+            "MyBytes": {
+              "candidates": null,
+              "name": "MyBytes",
+              "original": {
+                "kind": "array",
+                "value": {
+                  "kind": "primitive",
+                  "value": "byte"
+                }
+              }
+            },
+            "MyD": {
+              "candidates": null,
+              "name": "MyD",
+              "original": {
+                "kind": "array",
+                "value": {
+                  "kind": "selector",
+                  "prefix": "bson",
+                  "value": "DocElem"
+                }
+              }
+            },
+            "MyM": {
+              "candidates": null,
+              "name": "MyM",
+              "original": {
+                "key": {
+                  "kind": "primitive",
+                  "value": "string"
+                },
+                "kind": "map",
+                "value": {
+                  "kind": "interface",
+                  "methods": []
+                }
+              }
+            },
+            "MyRawD": {
+              "candidates": null,
+              "name": "MyRawD",
+              "original": {
+                "kind": "array",
+                "value": {
+                  "kind": "selector",
+                  "prefix": "bson",
+                  "value": "RawDocElem"
+                }
               }
             },
             "MyString": {
@@ -692,6 +782,17 @@
               "original": {
                 "kind": "primitive",
                 "value": "int"
+              }
+            },
+            "ifaceSlice": {
+              "candidates": null,
+              "name": "ifaceSlice",
+              "original": {
+                "kind": "array",
+                "value": {
+                  "kind": "primitive",
+                  "value": "ifaceType"
+                }
               }
             },
             "intGetter": {
@@ -768,6 +869,11 @@
               "fullname": "gopkg.in/yaml.v2",
               "name": "yaml.v2",
               "needparse": false
+            }
+          },
+          "interface": {
+            "ifaceType": {
+              "name": "ifaceType"
             }
           },
           "name": "GOPATH/src/gopkg.in/mgo.v2/bson/bson_test.go",
@@ -1888,7 +1994,6 @@
           }
         },
         "GOPATH/src/gopkg.in/mgo.v2/bson/decimal_test.go": {
-          "alias": {},
           "import": {
             ".": {
               "fullname": "gopkg.in/check.v1",
@@ -2002,7 +2107,6 @@
           }
         },
         "GOPATH/src/gopkg.in/mgo.v2/bson/json_test.go": {
-          "alias": {},
           "import": {
             ".": {
               "fullname": "gopkg.in/check.v1",
@@ -2076,10 +2180,7 @@
           }
         },
         "GOPATH/src/gopkg.in/mgo.v2/bson/specdata_test.go": {
-          "alias": {},
-          "import": {},
-          "name": "GOPATH/src/gopkg.in/mgo.v2/bson/specdata_test.go",
-          "struct": {}
+          "name": "GOPATH/src/gopkg.in/mgo.v2/bson/specdata_test.go"
         }
       },
       "fullname": "gopkg.in/mgo.v2/bson",
