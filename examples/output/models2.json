@@ -1,43 +1,7 @@
 {
   "module": {
     "atomic": {
-      "file": {
-        "/opt/local/lib/go/src/sync/atomic/value.go": {
-          "import": {
-            "unsafe": {
-              "fullname": "unsafe",
-              "name": "unsafe",
-              "needparse": false
-            }
-          },
-          "name": "/opt/local/lib/go/src/sync/atomic/value.go",
-          "struct": {
-            "Value": {
-              "fields": {
-                "noCopy": {
-                  "embed": false,
-                  "name": "noCopy",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "noCopy"
-                  }
-                },
-                "v": {
-                  "embed": false,
-                  "name": "v",
-                  "tags": {},
-                  "type": {
-                    "kind": "interface",
-                    "methods": []
-                  }
-                }
-              },
-              "name": "Value"
-            }
-          }
-        }
-      },
+      "file": {},
       "fullname": "atomic",
       "name": "atomic"
     },
@@ -851,21 +815,6 @@
       "fullname": "io_test",
       "name": "io_test"
     },
-    "ioutil": {
-      "file": {},
-      "fullname": "ioutil",
-      "name": "ioutil"
-    },
-    "ioutil_test": {
-      "file": {},
-      "fullname": "ioutil_test",
-      "name": "ioutil_test"
-    },
-    "main": {
-      "file": {},
-      "fullname": "main",
-      "name": "main"
-    },
     "md5": {
       "file": {},
       "fullname": "md5",
@@ -887,12 +836,12 @@
                   "value": "\"female\""
                 },
                 {
-                  "name": "PersonGendermale",
-                  "value": "\"male\""
-                },
-                {
                   "name": "PersonGenderUnknown",
                   "value": "\"unknown\""
+                },
+                {
+                  "name": "PersonGendermale",
+                  "value": "\"male\""
                 }
               ],
               "name": "PersonGender",
@@ -3541,60 +3490,6 @@
       "fullname": "runtime_test",
       "name": "runtime_test"
     },
-    "sort": {
-      "file": {
-        "/opt/local/lib/go/src/sort/sort.go": {
-          "alias": {
-            "Float64Slice": {
-              "candidates": null,
-              "name": "Float64Slice",
-              "original": {
-                "kind": "array",
-                "value": {
-                  "kind": "primitive",
-                  "value": "float64"
-                }
-              }
-            },
-            "IntSlice": {
-              "candidates": null,
-              "name": "IntSlice",
-              "original": {
-                "kind": "array",
-                "value": {
-                  "kind": "primitive",
-                  "value": "int"
-                }
-              }
-            },
-            "StringSlice": {
-              "candidates": null,
-              "name": "StringSlice",
-              "original": {
-                "kind": "array",
-                "value": {
-                  "kind": "primitive",
-                  "value": "string"
-                }
-              }
-            }
-          },
-          "interface": {
-            "Interface": {
-              "name": "Interface"
-            }
-          },
-          "name": "/opt/local/lib/go/src/sort/sort.go"
-        }
-      },
-      "fullname": "sort",
-      "name": "sort"
-    },
-    "sort_test": {
-      "file": {},
-      "fullname": "sort_test",
-      "name": "sort_test"
-    },
     "strconv": {
       "file": {
         "/opt/local/lib/go/src/strconv/atoi.go": {
@@ -4035,15 +3930,15 @@
             "Duration": {
               "candidates": [
                 {
-                  "name": "minDuration",
-                  "value": "1"
-                },
-                {
                   "name": "Nanosecond",
                   "value": "1"
                 },
                 {
                   "name": "maxDuration",
+                  "value": "1"
+                },
+                {
+                  "name": "minDuration",
                   "value": "1"
                 }
               ],

@@ -611,147 +611,6 @@
       "fullname": "io_test",
       "name": "io_test"
     },
-    "ioutil": {
-      "file": {},
-      "fullname": "ioutil",
-      "name": "ioutil"
-    },
-    "ioutil_test": {
-      "file": {},
-      "fullname": "ioutil_test",
-      "name": "ioutil_test"
-    },
-    "main": {
-      "file": {
-        "/opt/local/lib/go/src/time/genzabbrs.go": {
-          "import": {
-            "bytes": {
-              "fullname": "bytes",
-              "name": "bytes",
-              "needparse": false
-            },
-            "flag": {
-              "fullname": "flag",
-              "name": "flag",
-              "needparse": false
-            },
-            "format": {
-              "fullname": "go/format",
-              "name": "format",
-              "needparse": false
-            },
-            "http": {
-              "fullname": "net/http",
-              "name": "http",
-              "needparse": false
-            },
-            "ioutil": {
-              "fullname": "io/ioutil",
-              "name": "ioutil",
-              "needparse": false
-            },
-            "log": {
-              "fullname": "log",
-              "name": "log",
-              "needparse": false
-            },
-            "sort": {
-              "fullname": "sort",
-              "name": "sort",
-              "needparse": false
-            },
-            "template": {
-              "fullname": "text/template",
-              "name": "template",
-              "needparse": false
-            },
-            "time": {
-              "fullname": "time",
-              "name": "time",
-              "needparse": false
-            },
-            "xml": {
-              "fullname": "encoding/xml",
-              "name": "xml",
-              "needparse": false
-            }
-          },
-          "name": "/opt/local/lib/go/src/time/genzabbrs.go",
-          "struct": {
-            "MapZone": {
-              "fields": {
-                "Other": {
-                  "embed": false,
-                  "name": "Other",
-                  "tags": {
-                    "xml": [
-                      "other",
-                      "attr"
-                    ]
-                  },
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                },
-                "Territory": {
-                  "embed": false,
-                  "name": "Territory",
-                  "tags": {
-                    "xml": [
-                      "territory",
-                      "attr"
-                    ]
-                  },
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                },
-                "Type": {
-                  "embed": false,
-                  "name": "Type",
-                  "tags": {
-                    "xml": [
-                      "type",
-                      "attr"
-                    ]
-                  },
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                }
-              },
-              "name": "MapZone"
-            },
-            "SupplementalData": {
-              "fields": {
-                "Zones": {
-                  "embed": false,
-                  "name": "Zones",
-                  "tags": {
-                    "xml": [
-                      "windowsZones>mapTimezones>mapZone"
-                    ]
-                  },
-                  "type": {
-                    "kind": "array",
-                    "value": {
-                      "kind": "primitive",
-                      "value": "MapZone"
-                    }
-                  }
-                }
-              },
-              "name": "SupplementalData"
-            }
-          }
-        }
-      },
-      "fullname": "main",
-      "name": "main"
-    },
     "regexp": {
       "file": {
         "/opt/local/lib/go/src/regexp/regexp.go": {
@@ -1470,24 +1329,24 @@
             "ErrorCode": {
               "candidates": [
                 {
-                  "name": "ErrInvalidUTF8",
-                  "value": "\"invalid UTF-8\""
+                  "name": "ErrInternalError",
+                  "value": "\"regexp/syntax: internal error\""
                 },
                 {
-                  "name": "ErrMissingParen",
-                  "value": "\"missing closing )\""
+                  "name": "ErrInvalidCharClass",
+                  "value": "\"invalid character class\""
+                },
+                {
+                  "name": "ErrInvalidCharRange",
+                  "value": "\"invalid character class range\""
+                },
+                {
+                  "name": "ErrInvalidEscape",
+                  "value": "\"invalid escape sequence\""
                 },
                 {
                   "name": "ErrInvalidNamedCapture",
                   "value": "\"invalid named capture\""
-                },
-                {
-                  "name": "ErrMissingBracket",
-                  "value": "\"missing closing ]\""
-                },
-                {
-                  "name": "ErrTrailingBackslash",
-                  "value": "\"trailing backslash at end of expression\""
                 },
                 {
                   "name": "ErrInvalidPerlOp",
@@ -1498,28 +1357,28 @@
                   "value": "\"invalid nested repetition operator\""
                 },
                 {
-                  "name": "ErrMissingRepeatArgument",
-                  "value": "\"missing argument to repetition operator\""
-                },
-                {
-                  "name": "ErrInternalError",
-                  "value": "\"regexp/syntax: internal error\""
-                },
-                {
-                  "name": "ErrInvalidEscape",
-                  "value": "\"invalid escape sequence\""
-                },
-                {
-                  "name": "ErrInvalidCharClass",
-                  "value": "\"invalid character class\""
-                },
-                {
                   "name": "ErrInvalidRepeatSize",
                   "value": "\"invalid repeat count\""
                 },
                 {
-                  "name": "ErrInvalidCharRange",
-                  "value": "\"invalid character class range\""
+                  "name": "ErrInvalidUTF8",
+                  "value": "\"invalid UTF-8\""
+                },
+                {
+                  "name": "ErrMissingBracket",
+                  "value": "\"missing closing ]\""
+                },
+                {
+                  "name": "ErrMissingParen",
+                  "value": "\"missing closing )\""
+                },
+                {
+                  "name": "ErrMissingRepeatArgument",
+                  "value": "\"missing argument to repetition operator\""
+                },
+                {
+                  "name": "ErrTrailingBackslash",
+                  "value": "\"trailing backslash at end of expression\""
                 },
                 {
                   "name": "ErrUnexpectedParen",
@@ -2026,11 +1885,11 @@
             "Duration": {
               "candidates": [
                 {
-                  "name": "maxDuration",
+                  "name": "Nanosecond",
                   "value": "1"
                 },
                 {
-                  "name": "Nanosecond",
+                  "name": "maxDuration",
                   "value": "1"
                 },
                 {
