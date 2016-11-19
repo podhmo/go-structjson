@@ -61,6 +61,10 @@ func (app *App) parse(world *structjson.World, fpath string) error {
 			if err != nil {
 				return err
 			}
+			// skip no contents
+			if len(result.AliasMap) == 0 && len(result.StructMap) == 0 && len(result.InterfaceMap) == 0 {
+				continue
+			}
 			module.Files[fname] = result
 			for _, im := range result.ImportsMap {
 				if im.NeedParse && strings.Contains(im.FullName, "/") {
