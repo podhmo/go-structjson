@@ -496,6 +496,11 @@ func isInterfaceDefinition(ob *ast.Object) bool {
 		return false
 	}
 
+	// skip if unexported struct.
+	if strings.Title(node.Name.Name) != node.Name.Name {
+		return false
+	}
+
 	_, ok = node.Type.(*ast.InterfaceType)
 	if !ok {
 		return false
@@ -512,6 +517,7 @@ func isStructDefinition(ob *ast.Object) bool {
 	if !ok {
 		return false
 	}
+
 	// skip if unexported struct.
 	if strings.Title(node.Name.Name) != node.Name.Name {
 		return false
