@@ -14,23 +14,36 @@ import (
 )
 
 // TODO: support iota
-// TODO: tags extraction
 // TODO: comment extraction
 
 var target = flag.String("target", "", "target")
+var verbose = flag.Bool("verbose", false, "verbose")
+var exclude = flag.String("exclude", "fmt,log,reflect,go/ast,unsafe,html/template,text/template,encoding/xml,syscall,windows,encoding/binary,sync,os,flag,net/http,go/format,encoding/json,sys,bufio,bytes/buffer,unicode", "")
 
 type App struct {
-	gopath string
-	goroot string
-	used   map[string]struct{}
+	gopath     string
+	goroot     string
+	verbose    bool
+	excludeMap map[string]struct{}
+	used       map[string]struct{}
 }
 
-func (app *App) parse(world *structjson.World, fpath string) error {
+func (app *App) parse(world *structjson.World, fpath string, pkgName string, depth int) error {
 	_, exists := app.used[fpath]
 	if exists {
 		return nil
 	}
 	app.used[fpath] = struct{}{}
+
+	if _, exists := app.excludeMap[pkgName]; exists {
+		if app.verbose {
+			fmt.Fprintf(os.Stderr, "%sparse: skip %q\n", strings.Repeat(" ", depth), pkgName)
+		}
+		return nil
+	}
+	if app.verbose {
+		fmt.Fprintf(os.Stderr, "%sparse: %q\n", strings.Repeat(" ", depth), fpath)
+	}
 
 	pkgs, err := structjson.CollectPackageMap(fpath)
 	if err != nil {
@@ -72,7 +85,7 @@ func (app *App) parse(world *structjson.World, fpath string) error {
 					{
 						dpath := path.Join(gosrc, im.FullName)
 						if _, err := os.Stat(dpath); err == nil {
-							if err := app.parse(world, dpath); err != nil {
+							if err := app.parse(world, dpath, im.FullName, depth+1); err != nil {
 								return err
 							}
 						}
@@ -81,7 +94,7 @@ func (app *App) parse(world *structjson.World, fpath string) error {
 					{
 						dpath := path.Join(app.goroot, "src", im.FullName)
 						if _, err := os.Stat(dpath); err == nil {
-							if err := app.parse(world, dpath); err != nil {
+							if err := app.parse(world, dpath, im.FullName, depth+1); err != nil {
 								return err
 							}
 						}
@@ -107,12 +120,18 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	app := App{
-		gopath: os.Getenv("GOPATH"),
-		goroot: runtime.GOROOT(),
-		used:   map[string]struct{}{},
+	excludeMap := map[string]struct{}{}
+	for _, name := range strings.Split(*exclude, ",") {
+		excludeMap[strings.TrimSpace(name)] = struct{}{}
 	}
-	if err := app.parse(world, fpath); err != nil {
+	app := App{
+		gopath:     os.Getenv("GOPATH"),
+		goroot:     runtime.GOROOT(),
+		verbose:    *verbose,
+		used:       map[string]struct{}{},
+		excludeMap: excludeMap,
+	}
+	if err := app.parse(world, fpath, "", 0); err != nil {
 		panic(err)
 	}
 	encoder := json.NewEncoder(os.Stdout)
