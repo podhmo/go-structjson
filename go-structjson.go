@@ -129,7 +129,7 @@ func parseTags(node *ast.Field) map[string][]string {
 			if len(nameAndargs) == 2 {
 				unquotedArgs, err := strconv.Unquote(nameAndargs[1])
 				if err != nil {
-					panic(nameAndargs)
+					fmt.Fprintf(os.Stderr, "scan tags failure %q\n", unquoted)
 				}
 				for _, arg := range strings.Split(unquotedArgs, ",") {
 					trimmed := strings.Trim(arg, " ")
@@ -206,12 +206,23 @@ func FindType(r *Result, node ast.Node) Type {
 		m["results"] = FindType(r, node.Results)
 	case *ast.TypeSpec:
 		return FindType(r, node.Type)
+	case *ast.ChanType:
+		m["kind"] = "channel"
+		m["value"] = FindType(r, node.Value)
+		m["dir"] = node.Dir
+		// xxx
 	case *ast.FieldList:
+		if node == nil {
+			return []Type{}
+		}
 		args := make([]Type, len(node.List))
 		for i, arg := range node.List {
 			args[i] = FindType(r, arg.Type)
 		}
 		return args
+	case *ast.Ellipsis:
+		m["kind"] = "ellipsis"
+		m["value"] = FindType(r, node.Elt)
 	default:
 		spew.Dump(node)
 		panic(node)
@@ -323,7 +334,8 @@ func (r *Result) AddAliasValue(ob *ast.Object) (*AliasDefinition, error) {
 					// iota
 					return nil, nil
 				}
-				return nil, err // xxx;
+				fmt.Fprintf(os.Stderr, "const %s is complex definition. skip..\n", ob.Name)
+				return nil, nil
 			}
 			if lit == nil {
 				return nil, fmt.Errorf("not found: %s", ob.Name)
@@ -347,17 +359,26 @@ func (r *Result) AddAliasValue(ob *ast.Object) (*AliasDefinition, error) {
 			}
 			lit, err := findBasicLit(f)
 			if err != nil {
-				return nil, err // xxx;
+				fmt.Fprintf(os.Stderr, "const %s is complex definition. skip..\n", ob.Name)
+				return nil, nil
 			}
 			if lit == nil {
 				return nil, fmt.Errorf("not found@@: %s", ob.Name)
 			}
-			fident := f.Fun.(*ast.Ident)
+			fident, ok := f.Fun.(*ast.Ident)
+			if !ok {
+				fmt.Fprintf(os.Stderr, "const %s is complex definition. skip..\n", ob.Name)
+				return nil, nil
+			}
 			value = &AliasValue{TypeName: fident.Name, Name: ob.Name, Value: lit.Value, rawDef: ob}
 			break
 		}
 	}
 	// fident.Obj is same as type def?
+	if value == nil {
+		fmt.Fprintf(os.Stderr, "const %s is complex definition. skip..\n", ob.Name)
+		return nil, nil
+	}
 	if _, ok := r.AliasMap[value.TypeName]; !ok {
 		r.MaybeAliasses = append(r.MaybeAliasses, value)
 		return nil, nil

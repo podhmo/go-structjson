@@ -67,6 +67,7 @@ func (app *App) parse(world *structjson.World, fpath string) error {
 							}
 						}
 					}
+				} else {
 					{
 						dpath := path.Join(app.goroot, "src", im.FullName)
 						if _, err := os.Stat(dpath); err == nil {
