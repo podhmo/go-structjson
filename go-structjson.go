@@ -32,11 +32,11 @@ func NewModule(name string) *Module {
 
 type Result struct {
 	Name          string                          `json:"name"`
-	AliasMap      map[string]*AliasDefinition     `json:"alias"`
-	StructMap     map[string]*StructDefinition    `json:"struct"`
-	InterfaceMap  map[string]*InterfaceDefinition `json:"interface"`
+	AliasMap      map[string]*AliasDefinition     `json:"alias,omitempty"`
+	StructMap     map[string]*StructDefinition    `json:"struct,omitempty"`
+	InterfaceMap  map[string]*InterfaceDefinition `json:"interface,omitempty"`
 	MaybeAliasses []*AliasValue                   `json:"-"`
-	ImportsMap    map[string]*ImportDefinition    `json:"import"`
+	ImportsMap    map[string]*ImportDefinition    `json:"import,omitempty"`
 }
 
 func NewResult(name string) *Result {
