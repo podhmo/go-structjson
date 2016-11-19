@@ -512,6 +512,10 @@ func isStructDefinition(ob *ast.Object) bool {
 	if !ok {
 		return false
 	}
+	// skip if unexported struct.
+	if strings.Title(node.Name.Name) != node.Name.Name {
+		return false
+	}
 
 	_, ok = node.Type.(*ast.StructType)
 	if !ok {
@@ -528,6 +532,11 @@ func isAliasDefinition(ob *ast.Object) bool {
 	if !ok {
 		return false
 	}
+	// skip if unexported alias.
+	if strings.Title(node.Name.Name) != node.Name.Name {
+		return false
+	}
+
 	switch node.Type.(type) {
 	case *ast.Ident, *ast.SelectorExpr, *ast.ArrayType, *ast.MapType:
 		return true
