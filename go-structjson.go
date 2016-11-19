@@ -439,6 +439,7 @@ func CollectResult(name string, scope *ast.Scope, imports []*ast.ImportSpec) (*R
 			name = path.Base(fullname)
 		} else {
 			name = im.Name.Name
+			fullname = name
 		}
 		r.ImportsMap[name] = &ImportDefinition{
 			Name:      name,

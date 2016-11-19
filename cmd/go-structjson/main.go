@@ -55,15 +55,18 @@ func (app *App) parse(world *structjson.World, fpath string, pkgName string, dep
 		module := structjson.NewModule(pkg.Name)
 		world.Modules[pkg.Name] = module
 		for fname, f := range pkg.Files {
-			if module.FullName == "" && strings.HasPrefix(fname, gosrc) {
-				if stat, err := os.Stat(fname); err == nil {
-					if stat.IsDir() {
-						module.FullName = fname[len(gosrc)+1:]
-					} else {
-						module.FullName = filepath.Dir(fname)[len(gosrc)+1:]
+			if module.FullName == "" {
+				if strings.HasPrefix(fname, app.goroot) {
+					module.FullName = module.Name
+				} else if strings.HasPrefix(fname, gosrc) {
+					if stat, err := os.Stat(fname); err == nil {
+						if stat.IsDir() {
+							module.FullName = fname[len(gosrc)+1:]
+						} else {
+							module.FullName = filepath.Dir(fname)[len(gosrc)+1:]
+						}
 					}
 				}
-
 			}
 			// skip test code
 			if strings.HasSuffix(fname, "_test.go") {
