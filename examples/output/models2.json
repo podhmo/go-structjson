@@ -1,5 +1,51 @@
 {
   "module": {
+    "atomic": {
+      "file": {
+        "/opt/local/lib/go/src/sync/atomic/value.go": {
+          "import": {
+            "unsafe": {
+              "fullname": "unsafe",
+              "name": "unsafe",
+              "needparse": false
+            }
+          },
+          "name": "/opt/local/lib/go/src/sync/atomic/value.go",
+          "struct": {
+            "Value": {
+              "fields": {
+                "noCopy": {
+                  "embed": false,
+                  "name": "noCopy",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "noCopy"
+                  }
+                },
+                "v": {
+                  "embed": false,
+                  "name": "v",
+                  "tags": {},
+                  "type": {
+                    "kind": "interface",
+                    "methods": []
+                  }
+                }
+              },
+              "name": "Value"
+            }
+          }
+        }
+      },
+      "fullname": "atomic",
+      "name": "atomic"
+    },
+    "atomic_test": {
+      "file": {},
+      "fullname": "atomic_test",
+      "name": "atomic_test"
+    },
     "bson": {
       "file": {
         "GOPATH/src/gopkg.in/mgo.v2/bson/bson.go": {
@@ -63,22 +109,6 @@
               "original": {
                 "kind": "primitive",
                 "value": "string"
-              }
-            },
-            "externalPanic": {
-              "candidates": null,
-              "name": "externalPanic",
-              "original": {
-                "kind": "primitive",
-                "value": "string"
-              }
-            },
-            "orderKey": {
-              "candidates": null,
-              "name": "orderKey",
-              "original": {
-                "kind": "primitive",
-                "value": "int64"
               }
             }
           },
@@ -364,115 +394,6 @@
                 }
               },
               "name": "TypeError"
-            },
-            "fieldInfo": {
-              "fields": {
-                "Inline": {
-                  "embed": false,
-                  "name": "Inline",
-                  "tags": {},
-                  "type": {
-                    "kind": "array",
-                    "value": {
-                      "kind": "primitive",
-                      "value": "int"
-                    }
-                  }
-                },
-                "Key": {
-                  "embed": false,
-                  "name": "Key",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                },
-                "MinSize": {
-                  "embed": false,
-                  "name": "MinSize",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "bool"
-                  }
-                },
-                "Num": {
-                  "embed": false,
-                  "name": "Num",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "int"
-                  }
-                },
-                "OmitEmpty": {
-                  "embed": false,
-                  "name": "OmitEmpty",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "bool"
-                  }
-                }
-              },
-              "name": "fieldInfo"
-            },
-            "structInfo": {
-              "fields": {
-                "FieldsList": {
-                  "embed": false,
-                  "name": "FieldsList",
-                  "tags": {},
-                  "type": {
-                    "kind": "array",
-                    "value": {
-                      "kind": "primitive",
-                      "value": "fieldInfo"
-                    }
-                  }
-                },
-                "FieldsMap": {
-                  "embed": false,
-                  "name": "FieldsMap",
-                  "tags": {},
-                  "type": {
-                    "key": {
-                      "kind": "primitive",
-                      "value": "string"
-                    },
-                    "kind": "map",
-                    "value": {
-                      "kind": "primitive",
-                      "value": "fieldInfo"
-                    }
-                  }
-                },
-                "InlineMap": {
-                  "embed": false,
-                  "name": "InlineMap",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "int"
-                  }
-                },
-                "Zero": {
-                  "embed": false,
-                  "name": "Zero",
-                  "tags": {},
-                  "type": {
-                    "kind": "selector",
-                    "prefix": "reflect",
-                    "value": "Value"
-                  }
-                }
-              },
-              "name": "structInfo"
-            },
-            "undefined": {
-              "fields": {},
-              "name": "undefined"
             }
           }
         },
@@ -520,1071 +441,43 @@
               "name": "Decimal128"
             }
           }
-        },
-        "GOPATH/src/gopkg.in/mgo.v2/bson/decode.go": {
-          "import": {
-            "fmt": {
-              "fullname": "fmt",
-              "name": "fmt",
-              "needparse": false
-            },
-            "math": {
-              "fullname": "math",
-              "name": "math",
-              "needparse": false
-            },
-            "reflect": {
-              "fullname": "reflect",
-              "name": "reflect",
-              "needparse": true
-            },
-            "strconv": {
-              "fullname": "strconv",
-              "name": "strconv",
-              "needparse": false
-            },
-            "sync": {
-              "fullname": "sync",
-              "name": "sync",
-              "needparse": false
-            },
-            "time": {
-              "fullname": "time",
-              "name": "time",
-              "needparse": false
-            },
-            "url": {
-              "fullname": "net/url",
-              "name": "url",
-              "needparse": false
-            }
-          },
-          "name": "GOPATH/src/gopkg.in/mgo.v2/bson/decode.go",
-          "struct": {
-            "decoder": {
-              "fields": {
-                "docType": {
-                  "embed": false,
-                  "name": "docType",
-                  "tags": {},
-                  "type": {
-                    "kind": "selector",
-                    "prefix": "reflect",
-                    "value": "Type"
-                  }
-                },
-                "i": {
-                  "embed": false,
-                  "name": "i",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "int"
-                  }
-                },
-                "in": {
-                  "embed": false,
-                  "name": "in",
-                  "tags": {},
-                  "type": {
-                    "kind": "array",
-                    "value": {
-                      "kind": "primitive",
-                      "value": "byte"
-                    }
-                  }
-                }
-              },
-              "name": "decoder"
-            }
-          }
-        },
-        "GOPATH/src/gopkg.in/mgo.v2/bson/encode.go": {
-          "import": {
-            "fmt": {
-              "fullname": "fmt",
-              "name": "fmt",
-              "needparse": false
-            },
-            "json": {
-              "fullname": "encoding/json",
-              "name": "json",
-              "needparse": false
-            },
-            "math": {
-              "fullname": "math",
-              "name": "math",
-              "needparse": false
-            },
-            "reflect": {
-              "fullname": "reflect",
-              "name": "reflect",
-              "needparse": false
-            },
-            "strconv": {
-              "fullname": "strconv",
-              "name": "strconv",
-              "needparse": false
-            },
-            "time": {
-              "fullname": "time",
-              "name": "time",
-              "needparse": false
-            },
-            "url": {
-              "fullname": "net/url",
-              "name": "url",
-              "needparse": false
-            }
-          },
-          "name": "GOPATH/src/gopkg.in/mgo.v2/bson/encode.go",
-          "struct": {
-            "encoder": {
-              "fields": {
-                "out": {
-                  "embed": false,
-                  "name": "out",
-                  "tags": {},
-                  "type": {
-                    "kind": "array",
-                    "value": {
-                      "kind": "primitive",
-                      "value": "byte"
-                    }
-                  }
-                }
-              },
-              "name": "encoder"
-            }
-          }
-        },
-        "GOPATH/src/gopkg.in/mgo.v2/bson/json.go": {
-          "import": {
-            "base64": {
-              "fullname": "encoding/base64",
-              "name": "base64",
-              "needparse": false
-            },
-            "bytes": {
-              "fullname": "bytes",
-              "name": "bytes",
-              "needparse": false
-            },
-            "fmt": {
-              "fullname": "fmt",
-              "name": "fmt",
-              "needparse": false
-            },
-            "json": {
-              "fullname": "gopkg.in/mgo.v2/internal/json",
-              "name": "json",
-              "needparse": false
-            },
-            "strconv": {
-              "fullname": "strconv",
-              "name": "strconv",
-              "needparse": false
-            },
-            "time": {
-              "fullname": "time",
-              "name": "time",
-              "needparse": false
-            }
-          },
-          "name": "GOPATH/src/gopkg.in/mgo.v2/bson/json.go"
         }
       },
       "fullname": "gopkg.in/mgo.v2/bson",
       "name": "bson"
     },
     "bson_test": {
+      "file": {},
+      "fullname": "gopkg.in/mgo.v2/bson",
+      "name": "bson_test"
+    },
+    "bytes": {
       "file": {
-        "GOPATH/src/gopkg.in/mgo.v2/bson/bson_test.go": {
-          "alias": {
-            "MyBool": {
-              "candidates": null,
-              "name": "MyBool",
-              "original": {
-                "kind": "primitive",
-                "value": "bool"
-              }
-            },
-            "MyBytes": {
-              "candidates": null,
-              "name": "MyBytes",
-              "original": {
-                "kind": "array",
-                "value": {
-                  "kind": "primitive",
-                  "value": "byte"
-                }
-              }
-            },
-            "MyD": {
-              "candidates": null,
-              "name": "MyD",
-              "original": {
-                "kind": "array",
-                "value": {
-                  "kind": "selector",
-                  "prefix": "bson",
-                  "value": "DocElem"
-                }
-              }
-            },
-            "MyM": {
-              "candidates": null,
-              "name": "MyM",
-              "original": {
-                "key": {
-                  "kind": "primitive",
-                  "value": "string"
-                },
-                "kind": "map",
-                "value": {
-                  "kind": "interface",
-                  "methods": []
-                }
-              }
-            },
-            "MyRawD": {
-              "candidates": null,
-              "name": "MyRawD",
-              "original": {
-                "kind": "array",
-                "value": {
-                  "kind": "selector",
-                  "prefix": "bson",
-                  "value": "RawDocElem"
-                }
-              }
-            },
-            "MyString": {
-              "candidates": null,
-              "name": "MyString",
-              "original": {
-                "kind": "primitive",
-                "value": "string"
-              }
-            },
-            "getterSetterD": {
-              "candidates": null,
-              "name": "getterSetterD",
-              "original": {
-                "kind": "selector",
-                "prefix": "bson",
-                "value": "D"
-              }
-            },
-            "getterSetterInt": {
-              "candidates": null,
-              "name": "getterSetterInt",
-              "original": {
-                "kind": "primitive",
-                "value": "int"
-              }
-            },
-            "ifaceSlice": {
-              "candidates": null,
-              "name": "ifaceSlice",
-              "original": {
-                "kind": "array",
-                "value": {
-                  "kind": "primitive",
-                  "value": "ifaceType"
-                }
-              }
-            },
-            "intGetter": {
-              "candidates": null,
-              "name": "intGetter",
-              "original": {
-                "kind": "primitive",
-                "value": "int64"
-              }
-            }
-          },
+        "/opt/local/lib/go/src/bytes/buffer.go": {
           "import": {
-            ".": {
-              "fullname": "gopkg.in/check.v1",
-              "name": ".",
-              "needparse": false
-            },
-            "binary": {
-              "fullname": "encoding/binary",
-              "name": "binary",
-              "needparse": false
-            },
-            "bson": {
-              "fullname": "gopkg.in/mgo.v2/bson",
-              "name": "bson",
-              "needparse": true
-            },
             "errors": {
               "fullname": "errors",
               "name": "errors",
               "needparse": false
             },
-            "hex": {
-              "fullname": "encoding/hex",
-              "name": "hex",
+            "io": {
+              "fullname": "io",
+              "name": "io",
               "needparse": false
             },
-            "json": {
-              "fullname": "encoding/json",
-              "name": "json",
-              "needparse": false
-            },
-            "reflect": {
-              "fullname": "reflect",
-              "name": "reflect",
-              "needparse": false
-            },
-            "strings": {
-              "fullname": "strings",
-              "name": "strings",
-              "needparse": false
-            },
-            "testing": {
-              "fullname": "testing",
-              "name": "testing",
-              "needparse": false
-            },
-            "time": {
-              "fullname": "time",
-              "name": "time",
-              "needparse": true
-            },
-            "url": {
-              "fullname": "net/url",
-              "name": "url",
-              "needparse": false
-            },
-            "xml": {
-              "fullname": "encoding/xml",
-              "name": "xml",
-              "needparse": false
-            },
-            "yaml.v2": {
-              "fullname": "gopkg.in/yaml.v2",
-              "name": "yaml.v2",
+            "utf8": {
+              "fullname": "unicode/utf8",
+              "name": "utf8",
               "needparse": false
             }
           },
-          "interface": {
-            "ifaceType": {
-              "name": "ifaceType"
-            }
-          },
-          "name": "GOPATH/src/gopkg.in/mgo.v2/bson/bson_test.go",
+          "name": "/opt/local/lib/go/src/bytes/buffer.go",
           "struct": {
-            "BenchRawT": {
+            "Buffer": {
               "fields": {
-                "A": {
+                "bootstrap": {
                   "embed": false,
-                  "name": "A",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                },
-                "B": {
-                  "embed": false,
-                  "name": "B",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "int"
-                  }
-                },
-                "C": {
-                  "embed": false,
-                  "name": "C",
-                  "tags": {},
-                  "type": {
-                    "kind": "selector",
-                    "prefix": "bson",
-                    "value": "M"
-                  }
-                },
-                "D": {
-                  "embed": false,
-                  "name": "D",
-                  "tags": {},
-                  "type": {
-                    "kind": "array",
-                    "value": {
-                      "kind": "primitive",
-                      "value": "float64"
-                    }
-                  }
-                }
-              },
-              "name": "BenchRawT"
-            },
-            "BenchT": {
-              "fields": {
-                "A": {
-                  "embed": false,
-                  "name": "A",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                },
-                "B": {
-                  "embed": false,
-                  "name": "B",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                },
-                "C": {
-                  "embed": false,
-                  "name": "C",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                },
-                "D": {
-                  "embed": false,
-                  "name": "D",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                },
-                "E": {
-                  "embed": false,
-                  "name": "E",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                },
-                "F": {
-                  "embed": false,
-                  "name": "F",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                }
-              },
-              "name": "BenchT"
-            },
-            "S": {
-              "fields": {},
-              "name": "S"
-            },
-            "condBool": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "bool"
-                  }
-                }
-              },
-              "name": "condBool"
-            },
-            "condFloat": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "float64"
-                  }
-                }
-              },
-              "name": "condFloat"
-            },
-            "condIface": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "kind": "interface",
-                    "methods": []
-                  }
-                }
-              },
-              "name": "condIface"
-            },
-            "condInt": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "int"
-                  }
-                }
-              },
-              "name": "condInt"
-            },
-            "condMap": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "key": {
-                      "kind": "primitive",
-                      "value": "string"
-                    },
-                    "kind": "map",
-                    "value": {
-                      "kind": "primitive",
-                      "value": "int"
-                    }
-                  }
-                }
-              },
-              "name": "condMap"
-            },
-            "condPtr": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "kind": "pointer",
-                    "value": {
-                      "kind": "primitive",
-                      "value": "bool"
-                    }
-                  }
-                }
-              },
-              "name": "condPtr"
-            },
-            "condRaw": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "kind": "selector",
-                    "prefix": "bson",
-                    "value": "Raw"
-                  }
-                }
-              },
-              "name": "condRaw"
-            },
-            "condSlice": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "kind": "array",
-                    "value": {
-                      "kind": "primitive",
-                      "value": "string"
-                    }
-                  }
-                }
-              },
-              "name": "condSlice"
-            },
-            "condStr": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                }
-              },
-              "name": "condStr"
-            },
-            "condStrNS": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {
-                    "a": [
-                      "A"
-                    ],
-                    "b": [
-                      "B"
-                    ],
-                    "bson": [
-                      "",
-                      "omitempty"
-                    ]
-                  },
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                }
-              },
-              "name": "condStrNS"
-            },
-            "condStruct": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "fields": [
-                      {
-                        "kind": "array",
-                        "value": {
-                          "kind": "primitive",
-                          "value": "int"
-                        }
-                      }
-                    ],
-                    "kind": "struct"
-                  }
-                }
-              },
-              "name": "condStruct"
-            },
-            "condTime": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "kind": "selector",
-                    "prefix": "time",
-                    "value": "Time"
-                  }
-                }
-              },
-              "name": "condTime"
-            },
-            "condUInt": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "uint"
-                  }
-                }
-              },
-              "name": "condUInt"
-            },
-            "crossTypeItem": {
-              "fields": {
-                "obj1": {
-                  "embed": false,
-                  "name": "obj1",
-                  "tags": {},
-                  "type": {
-                    "kind": "interface",
-                    "methods": []
-                  }
-                },
-                "obj2": {
-                  "embed": false,
-                  "name": "obj2",
-                  "tags": {},
-                  "type": {
-                    "kind": "interface",
-                    "methods": []
-                  }
-                }
-              },
-              "name": "crossTypeItem"
-            },
-            "dOnIface": {
-              "fields": {
-                "D": {
-                  "embed": false,
-                  "name": "D",
-                  "tags": {},
-                  "type": {
-                    "kind": "interface",
-                    "methods": []
-                  }
-                }
-              },
-              "name": "dOnIface"
-            },
-            "docWithGetterField": {
-              "fields": {
-                "Field": {
-                  "embed": false,
-                  "name": "Field",
-                  "tags": {},
-                  "type": {
-                    "kind": "pointer",
-                    "value": {
-                      "kind": "primitive",
-                      "value": "typeWithGetter"
-                    }
-                  }
-                }
-              },
-              "name": "docWithGetterField"
-            },
-            "ignoreField": {
-              "fields": {
-                "After": {
-                  "embed": false,
-                  "name": "After",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                },
-                "Before": {
-                  "embed": false,
-                  "name": "Before",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                },
-                "Ignore": {
-                  "embed": false,
-                  "name": "Ignore",
-                  "tags": {
-                    "bson": [
-                      "-"
-                    ]
-                  },
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                }
-              },
-              "name": "ignoreField"
-            },
-            "inlineBadKeyMap": {
-              "fields": {
-                "M": {
-                  "embed": false,
-                  "name": "M",
-                  "tags": {},
-                  "type": {
-                    "key": {
-                      "kind": "primitive",
-                      "value": "int"
-                    },
-                    "kind": "map",
-                    "value": {
-                      "kind": "primitive",
-                      "value": "int"
-                    }
-                  }
-                }
-              },
-              "name": "inlineBadKeyMap"
-            },
-            "inlineCantPtr": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "kind": "pointer",
-                    "value": {
-                      "fields": [
-                        {
-                          "kind": "primitive",
-                          "value": "int"
-                        }
-                      ],
-                      "kind": "struct"
-                    }
-                  }
-                }
-              },
-              "name": "inlineCantPtr"
-            },
-            "inlineDupMap": {
-              "fields": {
-                "M1": {
-                  "embed": false,
-                  "name": "M1",
-                  "tags": {},
-                  "type": {
-                    "key": {
-                      "kind": "primitive",
-                      "value": "string"
-                    },
-                    "kind": "map",
-                    "value": {
-                      "kind": "interface",
-                      "methods": []
-                    }
-                  }
-                },
-                "M2": {
-                  "embed": false,
-                  "name": "M2",
-                  "tags": {},
-                  "type": {
-                    "key": {
-                      "kind": "primitive",
-                      "value": "string"
-                    },
-                    "kind": "map",
-                    "value": {
-                      "kind": "interface",
-                      "methods": []
-                    }
-                  }
-                }
-              },
-              "name": "inlineDupMap"
-            },
-            "inlineDupName": {
-              "fields": {
-                "A": {
-                  "embed": false,
-                  "name": "A",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "int"
-                  }
-                },
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "fields": [
-                      {
-                        "kind": "primitive",
-                        "value": "int"
-                      }
-                    ],
-                    "kind": "struct"
-                  }
-                }
-              },
-              "name": "inlineDupName"
-            },
-            "inlineInt": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "fields": [
-                      {
-                        "kind": "primitive",
-                        "value": "int"
-                      }
-                    ],
-                    "kind": "struct"
-                  }
-                }
-              },
-              "name": "inlineInt"
-            },
-            "inlineMap": {
-              "fields": {
-                "A": {
-                  "embed": false,
-                  "name": "A",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "int"
-                  }
-                },
-                "M": {
-                  "embed": false,
-                  "name": "M",
-                  "tags": {},
-                  "type": {
-                    "key": {
-                      "kind": "primitive",
-                      "value": "string"
-                    },
-                    "kind": "map",
-                    "value": {
-                      "kind": "interface",
-                      "methods": []
-                    }
-                  }
-                }
-              },
-              "name": "inlineMap"
-            },
-            "inlineMapInt": {
-              "fields": {
-                "A": {
-                  "embed": false,
-                  "name": "A",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "int"
-                  }
-                },
-                "M": {
-                  "embed": false,
-                  "name": "M",
-                  "tags": {},
-                  "type": {
-                    "key": {
-                      "kind": "primitive",
-                      "value": "string"
-                    },
-                    "kind": "map",
-                    "value": {
-                      "kind": "primitive",
-                      "value": "int"
-                    }
-                  }
-                }
-              },
-              "name": "inlineMapInt"
-            },
-            "inlineMapMyM": {
-              "fields": {
-                "A": {
-                  "embed": false,
-                  "name": "A",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "int"
-                  }
-                },
-                "M": {
-                  "embed": false,
-                  "name": "M",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "MyM"
-                  }
-                }
-              },
-              "name": "inlineMapMyM"
-            },
-            "inlineUnexported": {
-              "fields": {
-                "M": {
-                  "embed": false,
-                  "name": "M",
-                  "tags": {},
-                  "type": {
-                    "key": {
-                      "kind": "primitive",
-                      "value": "string"
-                    },
-                    "kind": "map",
-                    "value": {
-                      "kind": "interface",
-                      "methods": []
-                    }
-                  }
-                },
-                "unexported": {
-                  "embed": true,
-                  "name": "unexported",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "unexported"
-                  }
-                }
-              },
-              "name": "inlineUnexported"
-            },
-            "jsonType": {
-              "fields": {
-                "Id": {
-                  "embed": false,
-                  "name": "Id",
-                  "tags": {},
-                  "type": {
-                    "kind": "selector",
-                    "prefix": "bson",
-                    "value": "ObjectId"
-                  }
-                }
-              },
-              "name": "jsonType"
-            },
-            "namedCondStr": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                }
-              },
-              "name": "namedCondStr"
-            },
-            "objectIdParts": {
-              "fields": {
-                "counter": {
-                  "embed": false,
-                  "name": "counter",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "int32"
-                  }
-                },
-                "id": {
-                  "embed": false,
-                  "name": "id",
-                  "tags": {},
-                  "type": {
-                    "kind": "selector",
-                    "prefix": "bson",
-                    "value": "ObjectId"
-                  }
-                },
-                "machine": {
-                  "embed": false,
-                  "name": "machine",
+                  "name": "bootstrap",
                   "tags": {},
                   "type": {
                     "kind": "array",
@@ -1594,415 +487,151 @@
                     }
                   }
                 },
-                "pid": {
+                "buf": {
                   "embed": false,
-                  "name": "pid",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "uint16"
-                  }
-                },
-                "timestamp": {
-                  "embed": false,
-                  "name": "timestamp",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "int64"
-                  }
-                }
-              },
-              "name": "objectIdParts"
-            },
-            "ptrSetterDoc": {
-              "fields": {
-                "Field": {
-                  "embed": false,
-                  "name": "Field",
-                  "tags": {},
-                  "type": {
-                    "kind": "pointer",
-                    "value": {
-                      "kind": "primitive",
-                      "value": "setterType"
-                    }
-                  }
-                }
-              },
-              "name": "ptrSetterDoc"
-            },
-            "setterType": {
-              "fields": {
-                "received": {
-                  "embed": false,
-                  "name": "received",
-                  "tags": {},
-                  "type": {
-                    "kind": "interface",
-                    "methods": []
-                  }
-                }
-              },
-              "name": "setterType"
-            },
-            "shortIface": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "kind": "interface",
-                    "methods": []
-                  }
-                }
-              },
-              "name": "shortIface"
-            },
-            "shortInt": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "int64"
-                  }
-                }
-              },
-              "name": "shortInt"
-            },
-            "shortNonEmptyInt": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "int64"
-                  }
-                }
-              },
-              "name": "shortNonEmptyInt"
-            },
-            "shortPtr": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "kind": "pointer",
-                    "value": {
-                      "kind": "primitive",
-                      "value": "int64"
-                    }
-                  }
-                }
-              },
-              "name": "shortPtr"
-            },
-            "shortUint": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "uint64"
-                  }
-                }
-              },
-              "name": "shortUint"
-            },
-            "specSample1": {
-              "fields": {
-                "Hello": {
-                  "embed": false,
-                  "name": "Hello",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                }
-              },
-              "name": "specSample1"
-            },
-            "specSample2": {
-              "fields": {
-                "BSON": {
-                  "embed": false,
-                  "name": "BSON",
+                  "name": "buf",
                   "tags": {},
                   "type": {
                     "kind": "array",
                     "value": {
-                      "kind": "interface",
-                      "methods": []
+                      "kind": "primitive",
+                      "value": "byte"
                     }
                   }
-                }
-              },
-              "name": "specSample2"
-            },
-            "specTest": {
-              "fields": {
-                "Description": {
+                },
+                "lastRead": {
                   "embed": false,
-                  "name": "Description",
+                  "name": "lastRead",
                   "tags": {},
                   "type": {
                     "kind": "primitive",
-                    "value": "string"
+                    "value": "readOp"
                   }
                 },
-                "Documents": {
+                "off": {
                   "embed": false,
-                  "name": "Documents",
-                  "tags": {},
-                  "type": {
-                    "kind": "array",
-                    "value": {
-                      "fields": [
-                        {
-                          "key": {
-                            "kind": "primitive",
-                            "value": "string"
-                          },
-                          "kind": "map",
-                          "value": {
-                            "kind": "interface",
-                            "methods": []
-                          }
-                        },
-                        {
-                          "kind": "primitive",
-                          "value": "string"
-                        },
-                        {
-                          "kind": "primitive",
-                          "value": "bool"
-                        },
-                        {
-                          "kind": "interface",
-                          "methods": []
-                        }
-                      ],
-                      "kind": "struct"
-                    }
-                  }
-                }
-              },
-              "name": "specTest"
-            },
-            "structWithDupKeys": {
-              "fields": {
-                "Name": {
-                  "embed": false,
-                  "name": "Name",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "byte"
-                  }
-                },
-                "Other": {
-                  "embed": false,
-                  "name": "Other",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "byte"
-                  }
-                }
-              },
-              "name": "structWithDupKeys"
-            },
-            "testItemType": {
-              "fields": {
-                "data": {
-                  "embed": false,
-                  "name": "data",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                },
-                "obj": {
-                  "embed": false,
-                  "name": "obj",
-                  "tags": {},
-                  "type": {
-                    "kind": "interface",
-                    "methods": []
-                  }
-                }
-              },
-              "name": "testItemType"
-            },
-            "typeWithGetter": {
-              "fields": {
-                "err": {
-                  "embed": false,
-                  "name": "err",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "error"
-                  }
-                },
-                "result": {
-                  "embed": false,
-                  "name": "result",
-                  "tags": {},
-                  "type": {
-                    "kind": "interface",
-                    "methods": []
-                  }
-                }
-              },
-              "name": "typeWithGetter"
-            },
-            "typeWithIntGetter": {
-              "fields": {
-                "V": {
-                  "embed": false,
-                  "name": "V",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "intGetter"
-                  }
-                }
-              },
-              "name": "typeWithIntGetter"
-            },
-            "unexported": {
-              "fields": {
-                "A": {
-                  "embed": false,
-                  "name": "A",
+                  "name": "off",
                   "tags": {},
                   "type": {
                     "kind": "primitive",
                     "value": "int"
                   }
-                }
-              },
-              "name": "unexported"
-            },
-            "unmarshalErrorType": {
-              "fields": {
-                "data": {
-                  "embed": false,
-                  "name": "data",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
                 },
-                "error": {
+                "runeBytes": {
                   "embed": false,
-                  "name": "error",
+                  "name": "runeBytes",
                   "tags": {},
                   "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                },
-                "obj": {
-                  "embed": false,
-                  "name": "obj",
-                  "tags": {},
-                  "type": {
-                    "kind": "interface",
-                    "methods": []
+                    "kind": "array",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "byte"
+                    }
                   }
                 }
               },
-              "name": "unmarshalErrorType"
-            },
-            "unmarshalRawErrorType": {
-              "fields": {
-                "error": {
-                  "embed": false,
-                  "name": "error",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                },
-                "obj": {
-                  "embed": false,
-                  "name": "obj",
-                  "tags": {},
-                  "type": {
-                    "kind": "interface",
-                    "methods": []
-                  }
-                },
-                "raw": {
-                  "embed": false,
-                  "name": "raw",
-                  "tags": {},
-                  "type": {
-                    "kind": "selector",
-                    "prefix": "bson",
-                    "value": "Raw"
-                  }
-                }
-              },
-              "name": "unmarshalRawErrorType"
-            },
-            "valSetterDoc": {
-              "fields": {
-                "Field": {
-                  "embed": false,
-                  "name": "Field",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "setterType"
-                  }
-                }
-              },
-              "name": "valSetterDoc"
-            },
-            "xmlType": {
-              "fields": {
-                "Id": {
-                  "embed": false,
-                  "name": "Id",
-                  "tags": {},
-                  "type": {
-                    "kind": "selector",
-                    "prefix": "bson",
-                    "value": "ObjectId"
-                  }
-                }
-              },
-              "name": "xmlType"
+              "name": "Buffer"
             }
           }
         },
-        "GOPATH/src/gopkg.in/mgo.v2/bson/decimal_test.go": {
+        "/opt/local/lib/go/src/bytes/reader.go": {
           "import": {
-            ".": {
-              "fullname": "gopkg.in/check.v1",
-              "name": ".",
+            "errors": {
+              "fullname": "errors",
+              "name": "errors",
               "needparse": false
             },
-            "bson": {
-              "fullname": "gopkg.in/mgo.v2/bson",
-              "name": "bson",
+            "io": {
+              "fullname": "io",
+              "name": "io",
+              "needparse": false
+            },
+            "utf8": {
+              "fullname": "unicode/utf8",
+              "name": "utf8",
+              "needparse": false
+            }
+          },
+          "name": "/opt/local/lib/go/src/bytes/reader.go",
+          "struct": {
+            "Reader": {
+              "fields": {
+                "i": {
+                  "embed": false,
+                  "name": "i",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int64"
+                  }
+                },
+                "prevRune": {
+                  "embed": false,
+                  "name": "prevRune",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int"
+                  }
+                },
+                "s": {
+                  "embed": false,
+                  "name": "s",
+                  "tags": {},
+                  "type": {
+                    "kind": "array",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "byte"
+                    }
+                  }
+                }
+              },
+              "name": "Reader"
+            }
+          }
+        }
+      },
+      "fullname": "bytes",
+      "name": "bytes"
+    },
+    "bytes_test": {
+      "file": {},
+      "fullname": "bytes_test",
+      "name": "bytes_test"
+    },
+    "errors": {
+      "file": {},
+      "fullname": "errors",
+      "name": "errors"
+    },
+    "errors_test": {
+      "file": {},
+      "fullname": "errors_test",
+      "name": "errors_test"
+    },
+    "hex": {
+      "file": {
+        "/opt/local/lib/go/src/encoding/hex/hex.go": {
+          "alias": {
+            "InvalidByteError": {
+              "candidates": null,
+              "name": "InvalidByteError",
+              "original": {
+                "kind": "primitive",
+                "value": "byte"
+              }
+            }
+          },
+          "import": {
+            "bytes": {
+              "fullname": "bytes",
+              "name": "bytes",
+              "needparse": false
+            },
+            "errors": {
+              "fullname": "errors",
+              "name": "errors",
               "needparse": false
             },
             "fmt": {
@@ -2010,181 +639,242 @@
               "name": "fmt",
               "needparse": false
             },
-            "hex": {
-              "fullname": "encoding/hex",
-              "name": "hex",
-              "needparse": false
-            },
-            "json": {
-              "fullname": "encoding/json",
-              "name": "json",
-              "needparse": false
-            },
-            "regexp": {
-              "fullname": "regexp",
-              "name": "regexp",
-              "needparse": false
-            },
-            "strings": {
-              "fullname": "strings",
-              "name": "strings",
+            "io": {
+              "fullname": "io",
+              "name": "io",
               "needparse": false
             }
           },
-          "name": "GOPATH/src/gopkg.in/mgo.v2/bson/decimal_test.go",
-          "struct": {
-            "decimalTests": {
-              "fields": {
-                "ParseErrors": {
-                  "embed": false,
-                  "name": "ParseErrors",
-                  "tags": {
-                    "json": [
-                      "parseErrors"
-                    ]
-                  },
-                  "type": {
-                    "kind": "array",
-                    "value": {
-                      "fields": [
-                        {
-                          "kind": "primitive",
-                          "value": "string"
-                        },
-                        {
-                          "kind": "primitive",
-                          "value": "string"
-                        }
-                      ],
-                      "kind": "struct"
-                    }
-                  }
-                },
-                "Valid": {
-                  "embed": false,
-                  "name": "Valid",
-                  "tags": {
-                    "json": [
-                      "valid"
-                    ]
-                  },
-                  "type": {
-                    "kind": "array",
-                    "value": {
-                      "fields": [
-                        {
-                          "kind": "primitive",
-                          "value": "string"
-                        },
-                        {
-                          "kind": "primitive",
-                          "value": "string"
-                        },
-                        {
-                          "kind": "primitive",
-                          "value": "string"
-                        },
-                        {
-                          "kind": "primitive",
-                          "value": "string"
-                        },
-                        {
-                          "kind": "primitive",
-                          "value": "string"
-                        },
-                        {
-                          "kind": "primitive",
-                          "value": "bool"
-                        }
-                      ],
-                      "kind": "struct"
-                    }
-                  }
-                }
-              },
-              "name": "decimalTests"
-            }
-          }
-        },
-        "GOPATH/src/gopkg.in/mgo.v2/bson/json_test.go": {
-          "import": {
-            ".": {
-              "fullname": "gopkg.in/check.v1",
-              "name": ".",
-              "needparse": false
-            },
-            "bson": {
-              "fullname": "gopkg.in/mgo.v2/bson",
-              "name": "bson",
-              "needparse": false
-            },
-            "reflect": {
-              "fullname": "reflect",
-              "name": "reflect",
-              "needparse": false
-            },
-            "strings": {
-              "fullname": "strings",
-              "name": "strings",
-              "needparse": false
-            },
-            "time": {
-              "fullname": "time",
-              "name": "time",
-              "needparse": false
-            }
-          },
-          "name": "GOPATH/src/gopkg.in/mgo.v2/bson/json_test.go",
-          "struct": {
-            "jsonTest": {
-              "fields": {
-                "a": {
-                  "embed": false,
-                  "name": "a",
-                  "tags": {},
-                  "type": {
-                    "kind": "interface",
-                    "methods": []
-                  }
-                },
-                "b": {
-                  "embed": false,
-                  "name": "b",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                },
-                "c": {
-                  "embed": false,
-                  "name": "c",
-                  "tags": {},
-                  "type": {
-                    "kind": "interface",
-                    "methods": []
-                  }
-                },
-                "e": {
-                  "embed": false,
-                  "name": "e",
-                  "tags": {},
-                  "type": {
-                    "kind": "primitive",
-                    "value": "string"
-                  }
-                }
-              },
-              "name": "jsonTest"
-            }
-          }
-        },
-        "GOPATH/src/gopkg.in/mgo.v2/bson/specdata_test.go": {
-          "name": "GOPATH/src/gopkg.in/mgo.v2/bson/specdata_test.go"
+          "name": "/opt/local/lib/go/src/encoding/hex/hex.go"
         }
       },
-      "fullname": "gopkg.in/mgo.v2/bson",
-      "name": "bson_test"
+      "fullname": "hex",
+      "name": "hex"
+    },
+    "io": {
+      "file": {
+        "/opt/local/lib/go/src/io/io.go": {
+          "import": {
+            "errors": {
+              "fullname": "errors",
+              "name": "errors",
+              "needparse": false
+            }
+          },
+          "interface": {
+            "ByteReader": {
+              "name": "ByteReader"
+            },
+            "ByteScanner": {
+              "name": "ByteScanner"
+            },
+            "ByteWriter": {
+              "name": "ByteWriter"
+            },
+            "Closer": {
+              "name": "Closer"
+            },
+            "ReadCloser": {
+              "name": "ReadCloser"
+            },
+            "ReadSeeker": {
+              "name": "ReadSeeker"
+            },
+            "ReadWriteCloser": {
+              "name": "ReadWriteCloser"
+            },
+            "ReadWriteSeeker": {
+              "name": "ReadWriteSeeker"
+            },
+            "ReadWriter": {
+              "name": "ReadWriter"
+            },
+            "Reader": {
+              "name": "Reader"
+            },
+            "ReaderAt": {
+              "name": "ReaderAt"
+            },
+            "ReaderFrom": {
+              "name": "ReaderFrom"
+            },
+            "RuneReader": {
+              "name": "RuneReader"
+            },
+            "RuneScanner": {
+              "name": "RuneScanner"
+            },
+            "Seeker": {
+              "name": "Seeker"
+            },
+            "WriteCloser": {
+              "name": "WriteCloser"
+            },
+            "WriteSeeker": {
+              "name": "WriteSeeker"
+            },
+            "Writer": {
+              "name": "Writer"
+            },
+            "WriterAt": {
+              "name": "WriterAt"
+            },
+            "WriterTo": {
+              "name": "WriterTo"
+            }
+          },
+          "name": "/opt/local/lib/go/src/io/io.go",
+          "struct": {
+            "LimitedReader": {
+              "fields": {
+                "N": {
+                  "embed": false,
+                  "name": "N",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int64"
+                  }
+                },
+                "R": {
+                  "embed": false,
+                  "name": "R",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "Reader"
+                  }
+                }
+              },
+              "name": "LimitedReader"
+            },
+            "SectionReader": {
+              "fields": {
+                "base": {
+                  "embed": false,
+                  "name": "base",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int64"
+                  }
+                },
+                "limit": {
+                  "embed": false,
+                  "name": "limit",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int64"
+                  }
+                },
+                "off": {
+                  "embed": false,
+                  "name": "off",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int64"
+                  }
+                },
+                "r": {
+                  "embed": false,
+                  "name": "r",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "ReaderAt"
+                  }
+                }
+              },
+              "name": "SectionReader"
+            }
+          }
+        },
+        "/opt/local/lib/go/src/io/pipe.go": {
+          "import": {
+            "errors": {
+              "fullname": "errors",
+              "name": "errors",
+              "needparse": false
+            },
+            "sync": {
+              "fullname": "sync",
+              "name": "sync",
+              "needparse": false
+            }
+          },
+          "name": "/opt/local/lib/go/src/io/pipe.go",
+          "struct": {
+            "PipeReader": {
+              "fields": {
+                "p": {
+                  "embed": false,
+                  "name": "p",
+                  "tags": {},
+                  "type": {
+                    "kind": "pointer",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "pipe"
+                    }
+                  }
+                }
+              },
+              "name": "PipeReader"
+            },
+            "PipeWriter": {
+              "fields": {
+                "p": {
+                  "embed": false,
+                  "name": "p",
+                  "tags": {},
+                  "type": {
+                    "kind": "pointer",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "pipe"
+                    }
+                  }
+                }
+              },
+              "name": "PipeWriter"
+            }
+          }
+        }
+      },
+      "fullname": "io",
+      "name": "io"
+    },
+    "io_test": {
+      "file": {},
+      "fullname": "io_test",
+      "name": "io_test"
+    },
+    "ioutil": {
+      "file": {},
+      "fullname": "ioutil",
+      "name": "ioutil"
+    },
+    "ioutil_test": {
+      "file": {},
+      "fullname": "ioutil_test",
+      "name": "ioutil_test"
+    },
+    "main": {
+      "file": {},
+      "fullname": "main",
+      "name": "main"
+    },
+    "md5": {
+      "file": {},
+      "fullname": "md5",
+      "name": "md5"
+    },
+    "md5_test": {
+      "file": {},
+      "fullname": "md5_test",
+      "name": "md5_test"
     },
     "models": {
       "file": {
@@ -2217,6 +907,11 @@
               "fullname": "gopkg.in/mgo.v2/bson",
               "name": "bson",
               "needparse": true
+            },
+            "time": {
+              "fullname": "time",
+              "name": "time",
+              "needparse": true
             }
           },
           "name": "GOPATH/src/github.com/podhmo/go-structjson/examples/models2/person.go",
@@ -2237,6 +932,23 @@
                   "type": {
                     "kind": "primitive",
                     "value": "int"
+                  }
+                },
+                "CreatedAt": {
+                  "embed": false,
+                  "name": "CreatedAt",
+                  "tags": {
+                    "bson": [
+                      "createdAt"
+                    ],
+                    "json": [
+                      "createdAt"
+                    ]
+                  },
+                  "type": {
+                    "kind": "selector",
+                    "prefix": "time",
+                    "value": "Time"
                   }
                 },
                 "Gender": {
@@ -2287,6 +999,28 @@
                     "kind": "primitive",
                     "value": "string"
                   }
+                },
+                "UpdateAt": {
+                  "embed": false,
+                  "name": "UpdateAt",
+                  "tags": {
+                    "bson": [
+                      "updatedAt",
+                      "omitempty"
+                    ],
+                    "json": [
+                      "updatedAt",
+                      "omitempty"
+                    ]
+                  },
+                  "type": {
+                    "kind": "pointer",
+                    "value": {
+                      "kind": "selector",
+                      "prefix": "time",
+                      "value": "Time"
+                    }
+                  }
                 }
               },
               "name": "Person"
@@ -2296,6 +1030,3200 @@
       },
       "fullname": "github.com/podhmo/go-structjson/examples/models2",
       "name": "models"
+    },
+    "rand": {
+      "file": {},
+      "fullname": "rand",
+      "name": "rand"
+    },
+    "rand_test": {
+      "file": {},
+      "fullname": "rand_test",
+      "name": "rand_test"
+    },
+    "runtime": {
+      "file": {
+        "/opt/local/lib/go/src/runtime/defs1_linux.go": {
+          "alias": {
+            "Fpreg1": {
+              "candidates": null,
+              "name": "Fpreg1",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct__fpreg"
+              }
+            },
+            "Fpstate": {
+              "candidates": null,
+              "name": "Fpstate",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct__libc_fpstate"
+              }
+            },
+            "Fpstate1": {
+              "candidates": null,
+              "name": "Fpstate1",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct__fpstate"
+              }
+            },
+            "Fpxreg": {
+              "candidates": null,
+              "name": "Fpxreg",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct__libc_fpxreg"
+              }
+            },
+            "Fpxreg1": {
+              "candidates": null,
+              "name": "Fpxreg1",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct__fpxreg"
+              }
+            },
+            "Mcontext": {
+              "candidates": null,
+              "name": "Mcontext",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "mcontext_t"
+              }
+            },
+            "SigaltstackT": {
+              "candidates": null,
+              "name": "SigaltstackT",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_sigaltstack"
+              }
+            },
+            "Sigcontext": {
+              "candidates": null,
+              "name": "Sigcontext",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_sigcontext"
+              }
+            },
+            "Ucontext": {
+              "candidates": null,
+              "name": "Ucontext",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "ucontext_t"
+              }
+            },
+            "Usigset": {
+              "candidates": null,
+              "name": "Usigset",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "__sigset_t"
+              }
+            },
+            "Xmmreg": {
+              "candidates": null,
+              "name": "Xmmreg",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct__libc_xmmreg"
+              }
+            },
+            "Xmmreg1": {
+              "candidates": null,
+              "name": "Xmmreg1",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct__xmmreg"
+              }
+            }
+          },
+          "import": {
+            "C": {
+              "fullname": "C",
+              "name": "C",
+              "needparse": true
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/defs1_linux.go"
+        },
+        "/opt/local/lib/go/src/runtime/defs2_linux.go": {
+          "alias": {
+            "EpollEvent": {
+              "candidates": null,
+              "name": "EpollEvent",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_epoll_event"
+              }
+            },
+            "Fpreg": {
+              "candidates": null,
+              "name": "Fpreg",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct__fpreg"
+              }
+            },
+            "Fpstate": {
+              "candidates": null,
+              "name": "Fpstate",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct__fpstate"
+              }
+            },
+            "Fpxreg": {
+              "candidates": null,
+              "name": "Fpxreg",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct__fpxreg"
+              }
+            },
+            "Itimerval": {
+              "candidates": null,
+              "name": "Itimerval",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_itimerval"
+              }
+            },
+            "Sigaction": {
+              "candidates": null,
+              "name": "Sigaction",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_kernel_sigaction"
+              }
+            },
+            "SigaltstackT": {
+              "candidates": null,
+              "name": "SigaltstackT",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_sigaltstack"
+              }
+            },
+            "Sigcontext": {
+              "candidates": null,
+              "name": "Sigcontext",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_sigcontext"
+              }
+            },
+            "Siginfo": {
+              "candidates": null,
+              "name": "Siginfo",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "siginfo_t"
+              }
+            },
+            "Timespec": {
+              "candidates": null,
+              "name": "Timespec",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_timespec"
+              }
+            },
+            "Timeval": {
+              "candidates": null,
+              "name": "Timeval",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_timeval"
+              }
+            },
+            "Ucontext": {
+              "candidates": null,
+              "name": "Ucontext",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_ucontext"
+              }
+            },
+            "Xmmreg": {
+              "candidates": null,
+              "name": "Xmmreg",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct__xmmreg"
+              }
+            }
+          },
+          "import": {
+            "C": {
+              "fullname": "C",
+              "name": "C",
+              "needparse": true
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/defs2_linux.go"
+        },
+        "/opt/local/lib/go/src/runtime/defs3_linux.go": {
+          "alias": {
+            "FPregset": {
+              "candidates": null,
+              "name": "FPregset",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "elf_fpregset_t"
+              }
+            },
+            "Gregset": {
+              "candidates": null,
+              "name": "Gregset",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "elf_gregset_t"
+              }
+            },
+            "Ptregs": {
+              "candidates": null,
+              "name": "Ptregs",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_pt_regs"
+              }
+            },
+            "SigaltstackT": {
+              "candidates": null,
+              "name": "SigaltstackT",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_sigaltstack"
+              }
+            },
+            "Sigcontext": {
+              "candidates": null,
+              "name": "Sigcontext",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_sigcontext"
+              }
+            },
+            "Ucontext": {
+              "candidates": null,
+              "name": "Ucontext",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_ucontext"
+              }
+            },
+            "Usigset": {
+              "candidates": null,
+              "name": "Usigset",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "__sigset_t"
+              }
+            },
+            "Vreg": {
+              "candidates": null,
+              "name": "Vreg",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "elf_vrreg_t"
+              }
+            }
+          },
+          "import": {
+            "C": {
+              "fullname": "C",
+              "name": "C",
+              "needparse": true
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/defs3_linux.go"
+        },
+        "/opt/local/lib/go/src/runtime/defs_arm_linux.go": {
+          "alias": {
+            "Itimerval": {
+              "candidates": null,
+              "name": "Itimerval",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_itimerval"
+              }
+            },
+            "Sigaction": {
+              "candidates": null,
+              "name": "Sigaction",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_xsigaction"
+              }
+            },
+            "SigaltstackT": {
+              "candidates": null,
+              "name": "SigaltstackT",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_sigaltstack"
+              }
+            },
+            "Sigcontext": {
+              "candidates": null,
+              "name": "Sigcontext",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_sigcontext"
+              }
+            },
+            "Siginfo": {
+              "candidates": null,
+              "name": "Siginfo",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_xsiginfo"
+              }
+            },
+            "Timespec": {
+              "candidates": null,
+              "name": "Timespec",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_timespec"
+              }
+            },
+            "Timeval": {
+              "candidates": null,
+              "name": "Timeval",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_timeval"
+              }
+            },
+            "Ucontext": {
+              "candidates": null,
+              "name": "Ucontext",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_ucontext"
+              }
+            }
+          },
+          "import": {
+            "C": {
+              "fullname": "C",
+              "name": "C",
+              "needparse": true
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/defs_arm_linux.go"
+        },
+        "/opt/local/lib/go/src/runtime/defs_darwin.go": {
+          "alias": {
+            "ExceptionState32": {
+              "candidates": null,
+              "name": "ExceptionState32",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_i386_exception_state"
+              }
+            },
+            "ExceptionState64": {
+              "candidates": null,
+              "name": "ExceptionState64",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_x86_exception_state64"
+              }
+            },
+            "FPControl": {
+              "candidates": null,
+              "name": "FPControl",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_fp_control"
+              }
+            },
+            "FPStatus": {
+              "candidates": null,
+              "name": "FPStatus",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_fp_status"
+              }
+            },
+            "FloatState32": {
+              "candidates": null,
+              "name": "FloatState32",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_i386_float_state"
+              }
+            },
+            "FloatState64": {
+              "candidates": null,
+              "name": "FloatState64",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_x86_float_state64"
+              }
+            },
+            "Itimerval": {
+              "candidates": null,
+              "name": "Itimerval",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_itimerval"
+              }
+            },
+            "Kevent": {
+              "candidates": null,
+              "name": "Kevent",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_kevent"
+              }
+            },
+            "MachBody": {
+              "candidates": null,
+              "name": "MachBody",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "mach_msg_body_t"
+              }
+            },
+            "MachHeader": {
+              "candidates": null,
+              "name": "MachHeader",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "mach_msg_header_t"
+              }
+            },
+            "MachNDR": {
+              "candidates": null,
+              "name": "MachNDR",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "NDR_record_t"
+              }
+            },
+            "MachPort": {
+              "candidates": null,
+              "name": "MachPort",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "mach_msg_port_descriptor_t"
+              }
+            },
+            "Mcontext32": {
+              "candidates": null,
+              "name": "Mcontext32",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_mcontext32"
+              }
+            },
+            "Mcontext64": {
+              "candidates": null,
+              "name": "Mcontext64",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_mcontext64"
+              }
+            },
+            "RegMMST": {
+              "candidates": null,
+              "name": "RegMMST",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_mmst_reg"
+              }
+            },
+            "RegXMM": {
+              "candidates": null,
+              "name": "RegXMM",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_xmm_reg"
+              }
+            },
+            "Regs32": {
+              "candidates": null,
+              "name": "Regs32",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_i386_thread_state"
+              }
+            },
+            "Regs64": {
+              "candidates": null,
+              "name": "Regs64",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_x86_thread_state64"
+              }
+            },
+            "Sigaction": {
+              "candidates": null,
+              "name": "Sigaction",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct___sigaction"
+              }
+            },
+            "Sighandler": {
+              "candidates": null,
+              "name": "Sighandler",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "union___sigaction_u"
+              }
+            },
+            "Siginfo": {
+              "candidates": null,
+              "name": "Siginfo",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "siginfo_t"
+              }
+            },
+            "Sigval": {
+              "candidates": null,
+              "name": "Sigval",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "union_sigval"
+              }
+            },
+            "StackT": {
+              "candidates": null,
+              "name": "StackT",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_sigaltstack"
+              }
+            },
+            "Timespec": {
+              "candidates": null,
+              "name": "Timespec",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_timespec"
+              }
+            },
+            "Timeval": {
+              "candidates": null,
+              "name": "Timeval",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_timeval"
+              }
+            },
+            "Ucontext": {
+              "candidates": null,
+              "name": "Ucontext",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_ucontext"
+              }
+            },
+            "Usigaction": {
+              "candidates": null,
+              "name": "Usigaction",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_sigaction"
+              }
+            }
+          },
+          "import": {
+            "C": {
+              "fullname": "C",
+              "name": "C",
+              "needparse": true
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/defs_darwin.go"
+        },
+        "/opt/local/lib/go/src/runtime/defs_dragonfly.go": {
+          "alias": {
+            "Itimerval": {
+              "candidates": null,
+              "name": "Itimerval",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_itimerval"
+              }
+            },
+            "Kevent": {
+              "candidates": null,
+              "name": "Kevent",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_kevent"
+              }
+            },
+            "Lwpparams": {
+              "candidates": null,
+              "name": "Lwpparams",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_lwp_params"
+              }
+            },
+            "Mcontext": {
+              "candidates": null,
+              "name": "Mcontext",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "mcontext_t"
+              }
+            },
+            "Rtprio": {
+              "candidates": null,
+              "name": "Rtprio",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_rtprio"
+              }
+            },
+            "SigaltstackT": {
+              "candidates": null,
+              "name": "SigaltstackT",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_sigaltstack"
+              }
+            },
+            "Siginfo": {
+              "candidates": null,
+              "name": "Siginfo",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "siginfo_t"
+              }
+            },
+            "Sigset": {
+              "candidates": null,
+              "name": "Sigset",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct___sigset"
+              }
+            },
+            "StackT": {
+              "candidates": null,
+              "name": "StackT",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "stack_t"
+              }
+            },
+            "Timespec": {
+              "candidates": null,
+              "name": "Timespec",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_timespec"
+              }
+            },
+            "Timeval": {
+              "candidates": null,
+              "name": "Timeval",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_timeval"
+              }
+            },
+            "Ucontext": {
+              "candidates": null,
+              "name": "Ucontext",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "ucontext_t"
+              }
+            }
+          },
+          "import": {
+            "C": {
+              "fullname": "C",
+              "name": "C",
+              "needparse": true
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/defs_dragonfly.go"
+        },
+        "/opt/local/lib/go/src/runtime/defs_freebsd.go": {
+          "alias": {
+            "Itimerval": {
+              "candidates": null,
+              "name": "Itimerval",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_itimerval"
+              }
+            },
+            "Kevent": {
+              "candidates": null,
+              "name": "Kevent",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_kevent"
+              }
+            },
+            "Mcontext": {
+              "candidates": null,
+              "name": "Mcontext",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "mcontext_t"
+              }
+            },
+            "Rtprio": {
+              "candidates": null,
+              "name": "Rtprio",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_rtprio"
+              }
+            },
+            "SigaltstackT": {
+              "candidates": null,
+              "name": "SigaltstackT",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_sigaltstack"
+              }
+            },
+            "Siginfo": {
+              "candidates": null,
+              "name": "Siginfo",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "siginfo_t"
+              }
+            },
+            "Sigset": {
+              "candidates": null,
+              "name": "Sigset",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct___sigset"
+              }
+            },
+            "StackT": {
+              "candidates": null,
+              "name": "StackT",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "stack_t"
+              }
+            },
+            "ThrParam": {
+              "candidates": null,
+              "name": "ThrParam",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_thr_param"
+              }
+            },
+            "Timespec": {
+              "candidates": null,
+              "name": "Timespec",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_timespec"
+              }
+            },
+            "Timeval": {
+              "candidates": null,
+              "name": "Timeval",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_timeval"
+              }
+            },
+            "Ucontext": {
+              "candidates": null,
+              "name": "Ucontext",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "ucontext_t"
+              }
+            }
+          },
+          "import": {
+            "C": {
+              "fullname": "C",
+              "name": "C",
+              "needparse": true
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/defs_freebsd.go"
+        },
+        "/opt/local/lib/go/src/runtime/defs_linux.go": {
+          "alias": {
+            "EpollEvent": {
+              "candidates": null,
+              "name": "EpollEvent",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_epoll_event"
+              }
+            },
+            "Itimerval": {
+              "candidates": null,
+              "name": "Itimerval",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_itimerval"
+              }
+            },
+            "Sigaction": {
+              "candidates": null,
+              "name": "Sigaction",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_sigaction"
+              }
+            },
+            "Siginfo": {
+              "candidates": null,
+              "name": "Siginfo",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "siginfo_t"
+              }
+            },
+            "Sigset": {
+              "candidates": null,
+              "name": "Sigset",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "sigset_t"
+              }
+            },
+            "Timespec": {
+              "candidates": null,
+              "name": "Timespec",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_timespec"
+              }
+            },
+            "Timeval": {
+              "candidates": null,
+              "name": "Timeval",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_timeval"
+              }
+            }
+          },
+          "import": {
+            "C": {
+              "fullname": "C",
+              "name": "C",
+              "needparse": true
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/defs_linux.go"
+        },
+        "/opt/local/lib/go/src/runtime/defs_netbsd.go": {
+          "alias": {
+            "Itimerval": {
+              "candidates": null,
+              "name": "Itimerval",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_itimerval"
+              }
+            },
+            "Kevent": {
+              "candidates": null,
+              "name": "Kevent",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_kevent"
+              }
+            },
+            "McontextT": {
+              "candidates": null,
+              "name": "McontextT",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "mcontext_t"
+              }
+            },
+            "SigaltstackT": {
+              "candidates": null,
+              "name": "SigaltstackT",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_sigaltstack"
+              }
+            },
+            "Siginfo": {
+              "candidates": null,
+              "name": "Siginfo",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct__ksiginfo"
+              }
+            },
+            "Sigset": {
+              "candidates": null,
+              "name": "Sigset",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "sigset_t"
+              }
+            },
+            "StackT": {
+              "candidates": null,
+              "name": "StackT",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "stack_t"
+              }
+            },
+            "Timespec": {
+              "candidates": null,
+              "name": "Timespec",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_timespec"
+              }
+            },
+            "Timeval": {
+              "candidates": null,
+              "name": "Timeval",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_timeval"
+              }
+            },
+            "UcontextT": {
+              "candidates": null,
+              "name": "UcontextT",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "ucontext_t"
+              }
+            }
+          },
+          "import": {
+            "C": {
+              "fullname": "C",
+              "name": "C",
+              "needparse": true
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/defs_netbsd.go"
+        },
+        "/opt/local/lib/go/src/runtime/defs_openbsd.go": {
+          "alias": {
+            "Itimerval": {
+              "candidates": null,
+              "name": "Itimerval",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_itimerval"
+              }
+            },
+            "KeventT": {
+              "candidates": null,
+              "name": "KeventT",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_kevent"
+              }
+            },
+            "SigaltstackT": {
+              "candidates": null,
+              "name": "SigaltstackT",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_sigaltstack"
+              }
+            },
+            "Sigcontext": {
+              "candidates": null,
+              "name": "Sigcontext",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_sigcontext"
+              }
+            },
+            "Siginfo": {
+              "candidates": null,
+              "name": "Siginfo",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "siginfo_t"
+              }
+            },
+            "Sigset": {
+              "candidates": null,
+              "name": "Sigset",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "sigset_t"
+              }
+            },
+            "Sigval": {
+              "candidates": null,
+              "name": "Sigval",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "union_sigval"
+              }
+            },
+            "StackT": {
+              "candidates": null,
+              "name": "StackT",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "stack_t"
+              }
+            },
+            "TforkT": {
+              "candidates": null,
+              "name": "TforkT",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct___tfork"
+              }
+            },
+            "Timespec": {
+              "candidates": null,
+              "name": "Timespec",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_timespec"
+              }
+            },
+            "Timeval": {
+              "candidates": null,
+              "name": "Timeval",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_timeval"
+              }
+            }
+          },
+          "import": {
+            "C": {
+              "fullname": "C",
+              "name": "C",
+              "needparse": true
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/defs_openbsd.go"
+        },
+        "/opt/local/lib/go/src/runtime/defs_solaris.go": {
+          "alias": {
+            "Fpregset": {
+              "candidates": null,
+              "name": "Fpregset",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "fpregset_t"
+              }
+            },
+            "Itimerval": {
+              "candidates": null,
+              "name": "Itimerval",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_itimerval"
+              }
+            },
+            "Mcontext": {
+              "candidates": null,
+              "name": "Mcontext",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "mcontext_t"
+              }
+            },
+            "PortEvent": {
+              "candidates": null,
+              "name": "PortEvent",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "port_event_t"
+              }
+            },
+            "Pthread": {
+              "candidates": null,
+              "name": "Pthread",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "pthread_t"
+              }
+            },
+            "PthreadAttr": {
+              "candidates": null,
+              "name": "PthreadAttr",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "pthread_attr_t"
+              }
+            },
+            "SemT": {
+              "candidates": null,
+              "name": "SemT",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "sem_t"
+              }
+            },
+            "Sigaction": {
+              "candidates": null,
+              "name": "Sigaction",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_sigaction"
+              }
+            },
+            "SigaltstackT": {
+              "candidates": null,
+              "name": "SigaltstackT",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_sigaltstack"
+              }
+            },
+            "Siginfo": {
+              "candidates": null,
+              "name": "Siginfo",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "siginfo_t"
+              }
+            },
+            "Sigset": {
+              "candidates": null,
+              "name": "Sigset",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "sigset_t"
+              }
+            },
+            "StackT": {
+              "candidates": null,
+              "name": "StackT",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "stack_t"
+              }
+            },
+            "Stat": {
+              "candidates": null,
+              "name": "Stat",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_stat"
+              }
+            },
+            "Timespec": {
+              "candidates": null,
+              "name": "Timespec",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_timespec"
+              }
+            },
+            "Timeval": {
+              "candidates": null,
+              "name": "Timeval",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "struct_timeval"
+              }
+            },
+            "Ucontext": {
+              "candidates": null,
+              "name": "Ucontext",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "ucontext_t"
+              }
+            }
+          },
+          "import": {
+            "C": {
+              "fullname": "C",
+              "name": "C",
+              "needparse": true
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/defs_solaris.go"
+        },
+        "/opt/local/lib/go/src/runtime/defs_windows.go": {
+          "alias": {
+            "Context": {
+              "candidates": null,
+              "name": "Context",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "CONTEXT"
+              }
+            },
+            "ExceptionRecord": {
+              "candidates": null,
+              "name": "ExceptionRecord",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "EXCEPTION_RECORD"
+              }
+            },
+            "FloatingSaveArea": {
+              "candidates": null,
+              "name": "FloatingSaveArea",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "FLOATING_SAVE_AREA"
+              }
+            },
+            "M128a": {
+              "candidates": null,
+              "name": "M128a",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "M128A"
+              }
+            },
+            "Overlapped": {
+              "candidates": null,
+              "name": "Overlapped",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "OVERLAPPED"
+              }
+            },
+            "SystemInfo": {
+              "candidates": null,
+              "name": "SystemInfo",
+              "original": {
+                "kind": "selector",
+                "prefix": "C",
+                "value": "SYSTEM_INFO"
+              }
+            }
+          },
+          "import": {
+            "C": {
+              "fullname": "C",
+              "name": "C",
+              "needparse": true
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/defs_windows.go"
+        },
+        "/opt/local/lib/go/src/runtime/error.go": {
+          "interface": {
+            "Error": {
+              "name": "Error"
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/error.go",
+          "struct": {
+            "TypeAssertionError": {
+              "fields": {
+                "assertedString": {
+                  "embed": false,
+                  "name": "assertedString",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "string"
+                  }
+                },
+                "concreteString": {
+                  "embed": false,
+                  "name": "concreteString",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "string"
+                  }
+                },
+                "interfaceString": {
+                  "embed": false,
+                  "name": "interfaceString",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "string"
+                  }
+                },
+                "missingMethod": {
+                  "embed": false,
+                  "name": "missingMethod",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "string"
+                  }
+                }
+              },
+              "name": "TypeAssertionError"
+            }
+          }
+        },
+        "/opt/local/lib/go/src/runtime/mprof.go": {
+          "import": {
+            "atomic": {
+              "fullname": "runtime/internal/atomic",
+              "name": "atomic",
+              "needparse": false
+            },
+            "unsafe": {
+              "fullname": "unsafe",
+              "name": "unsafe",
+              "needparse": false
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/mprof.go",
+          "struct": {
+            "BlockProfileRecord": {
+              "fields": {
+                "Count": {
+                  "embed": false,
+                  "name": "Count",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int64"
+                  }
+                },
+                "Cycles": {
+                  "embed": false,
+                  "name": "Cycles",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int64"
+                  }
+                },
+                "StackRecord": {
+                  "embed": true,
+                  "name": "StackRecord",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "StackRecord"
+                  }
+                }
+              },
+              "name": "BlockProfileRecord"
+            },
+            "MemProfileRecord": {
+              "fields": {
+                "AllocBytes": {
+                  "embed": false,
+                  "name": "AllocBytes",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int64"
+                  }
+                },
+                "AllocObjects": {
+                  "embed": false,
+                  "name": "AllocObjects",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int64"
+                  }
+                },
+                "FreeBytes": {
+                  "embed": false,
+                  "name": "FreeBytes",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int64"
+                  }
+                },
+                "FreeObjects": {
+                  "embed": false,
+                  "name": "FreeObjects",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int64"
+                  }
+                },
+                "Stack0": {
+                  "embed": false,
+                  "name": "Stack0",
+                  "tags": {},
+                  "type": {
+                    "kind": "array",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "uintptr"
+                    }
+                  }
+                }
+              },
+              "name": "MemProfileRecord"
+            },
+            "StackRecord": {
+              "fields": {
+                "Stack0": {
+                  "embed": false,
+                  "name": "Stack0",
+                  "tags": {},
+                  "type": {
+                    "kind": "array",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "uintptr"
+                    }
+                  }
+                }
+              },
+              "name": "StackRecord"
+            }
+          }
+        },
+        "/opt/local/lib/go/src/runtime/mstats.go": {
+          "import": {
+            "atomic": {
+              "fullname": "runtime/internal/atomic",
+              "name": "atomic",
+              "needparse": false
+            },
+            "sys": {
+              "fullname": "runtime/internal/sys",
+              "name": "sys",
+              "needparse": false
+            },
+            "unsafe": {
+              "fullname": "unsafe",
+              "name": "unsafe",
+              "needparse": false
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/mstats.go",
+          "struct": {
+            "MemStats": {
+              "fields": {
+                "Alloc": {
+                  "embed": false,
+                  "name": "Alloc",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "BuckHashSys": {
+                  "embed": false,
+                  "name": "BuckHashSys",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "BySize": {
+                  "embed": false,
+                  "name": "BySize",
+                  "tags": {},
+                  "type": {
+                    "kind": "array",
+                    "value": {
+                      "fields": [
+                        {
+                          "kind": "primitive",
+                          "value": "uint32"
+                        },
+                        {
+                          "kind": "primitive",
+                          "value": "uint64"
+                        },
+                        {
+                          "kind": "primitive",
+                          "value": "uint64"
+                        }
+                      ],
+                      "kind": "struct"
+                    }
+                  }
+                },
+                "DebugGC": {
+                  "embed": false,
+                  "name": "DebugGC",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "bool"
+                  }
+                },
+                "EnableGC": {
+                  "embed": false,
+                  "name": "EnableGC",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "bool"
+                  }
+                },
+                "Frees": {
+                  "embed": false,
+                  "name": "Frees",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "GCCPUFraction": {
+                  "embed": false,
+                  "name": "GCCPUFraction",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "float64"
+                  }
+                },
+                "GCSys": {
+                  "embed": false,
+                  "name": "GCSys",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "HeapAlloc": {
+                  "embed": false,
+                  "name": "HeapAlloc",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "HeapIdle": {
+                  "embed": false,
+                  "name": "HeapIdle",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "HeapInuse": {
+                  "embed": false,
+                  "name": "HeapInuse",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "HeapObjects": {
+                  "embed": false,
+                  "name": "HeapObjects",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "HeapReleased": {
+                  "embed": false,
+                  "name": "HeapReleased",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "HeapSys": {
+                  "embed": false,
+                  "name": "HeapSys",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "LastGC": {
+                  "embed": false,
+                  "name": "LastGC",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "Lookups": {
+                  "embed": false,
+                  "name": "Lookups",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "MCacheInuse": {
+                  "embed": false,
+                  "name": "MCacheInuse",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "MCacheSys": {
+                  "embed": false,
+                  "name": "MCacheSys",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "MSpanInuse": {
+                  "embed": false,
+                  "name": "MSpanInuse",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "MSpanSys": {
+                  "embed": false,
+                  "name": "MSpanSys",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "Mallocs": {
+                  "embed": false,
+                  "name": "Mallocs",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "NextGC": {
+                  "embed": false,
+                  "name": "NextGC",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "NumGC": {
+                  "embed": false,
+                  "name": "NumGC",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint32"
+                  }
+                },
+                "OtherSys": {
+                  "embed": false,
+                  "name": "OtherSys",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "PauseEnd": {
+                  "embed": false,
+                  "name": "PauseEnd",
+                  "tags": {},
+                  "type": {
+                    "kind": "array",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "uint64"
+                    }
+                  }
+                },
+                "PauseNs": {
+                  "embed": false,
+                  "name": "PauseNs",
+                  "tags": {},
+                  "type": {
+                    "kind": "array",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "uint64"
+                    }
+                  }
+                },
+                "PauseTotalNs": {
+                  "embed": false,
+                  "name": "PauseTotalNs",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "StackInuse": {
+                  "embed": false,
+                  "name": "StackInuse",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "StackSys": {
+                  "embed": false,
+                  "name": "StackSys",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "Sys": {
+                  "embed": false,
+                  "name": "Sys",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                },
+                "TotalAlloc": {
+                  "embed": false,
+                  "name": "TotalAlloc",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint64"
+                  }
+                }
+              },
+              "name": "MemStats"
+            }
+          }
+        },
+        "/opt/local/lib/go/src/runtime/os_plan9.go": {
+          "alias": {
+            "_Plink": {
+              "candidates": null,
+              "name": "_Plink",
+              "original": {
+                "kind": "primitive",
+                "value": "uintptr"
+              }
+            }
+          },
+          "import": {
+            "atomic": {
+              "fullname": "runtime/internal/atomic",
+              "name": "atomic",
+              "needparse": false
+            },
+            "unsafe": {
+              "fullname": "unsafe",
+              "name": "unsafe",
+              "needparse": false
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/os_plan9.go"
+        },
+        "/opt/local/lib/go/src/runtime/os_windows.go": {
+          "import": {
+            "atomic": {
+              "fullname": "runtime/internal/atomic",
+              "name": "atomic",
+              "needparse": false
+            },
+            "unsafe": {
+              "fullname": "unsafe",
+              "name": "unsafe",
+              "needparse": false
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/os_windows.go",
+          "struct": {
+            "_KSYSTEM_TIME": {
+              "fields": {
+                "High1Time": {
+                  "embed": false,
+                  "name": "High1Time",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int32"
+                  }
+                },
+                "High2Time": {
+                  "embed": false,
+                  "name": "High2Time",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int32"
+                  }
+                },
+                "LowPart": {
+                  "embed": false,
+                  "name": "LowPart",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint32"
+                  }
+                }
+              },
+              "name": "_KSYSTEM_TIME"
+            }
+          }
+        },
+        "/opt/local/lib/go/src/runtime/runtime2.go": {
+          "import": {
+            "atomic": {
+              "fullname": "runtime/internal/atomic",
+              "name": "atomic",
+              "needparse": false
+            },
+            "sys": {
+              "fullname": "runtime/internal/sys",
+              "name": "sys",
+              "needparse": false
+            },
+            "unsafe": {
+              "fullname": "unsafe",
+              "name": "unsafe",
+              "needparse": true
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/runtime2.go",
+          "struct": {
+            "_defer": {
+              "fields": {
+                "_panic": {
+                  "embed": false,
+                  "name": "_panic",
+                  "tags": {},
+                  "type": {
+                    "kind": "pointer",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "_panic"
+                    }
+                  }
+                },
+                "fn": {
+                  "embed": false,
+                  "name": "fn",
+                  "tags": {},
+                  "type": {
+                    "kind": "pointer",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "funcval"
+                    }
+                  }
+                },
+                "link": {
+                  "embed": false,
+                  "name": "link",
+                  "tags": {},
+                  "type": {
+                    "kind": "pointer",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "_defer"
+                    }
+                  }
+                },
+                "pc": {
+                  "embed": false,
+                  "name": "pc",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uintptr"
+                  }
+                },
+                "siz": {
+                  "embed": false,
+                  "name": "siz",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int32"
+                  }
+                },
+                "sp": {
+                  "embed": false,
+                  "name": "sp",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uintptr"
+                  }
+                },
+                "started": {
+                  "embed": false,
+                  "name": "started",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "bool"
+                  }
+                }
+              },
+              "name": "_defer"
+            },
+            "_func": {
+              "fields": {
+                "_": {
+                  "embed": false,
+                  "name": "_",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int32"
+                  }
+                },
+                "args": {
+                  "embed": false,
+                  "name": "args",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int32"
+                  }
+                },
+                "entry": {
+                  "embed": false,
+                  "name": "entry",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uintptr"
+                  }
+                },
+                "nameoff": {
+                  "embed": false,
+                  "name": "nameoff",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int32"
+                  }
+                },
+                "nfuncdata": {
+                  "embed": false,
+                  "name": "nfuncdata",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int32"
+                  }
+                },
+                "npcdata": {
+                  "embed": false,
+                  "name": "npcdata",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int32"
+                  }
+                },
+                "pcfile": {
+                  "embed": false,
+                  "name": "pcfile",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int32"
+                  }
+                },
+                "pcln": {
+                  "embed": false,
+                  "name": "pcln",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int32"
+                  }
+                },
+                "pcsp": {
+                  "embed": false,
+                  "name": "pcsp",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int32"
+                  }
+                }
+              },
+              "name": "_func"
+            },
+            "_panic": {
+              "fields": {
+                "aborted": {
+                  "embed": false,
+                  "name": "aborted",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "bool"
+                  }
+                },
+                "arg": {
+                  "embed": false,
+                  "name": "arg",
+                  "tags": {},
+                  "type": {
+                    "kind": "interface",
+                    "methods": []
+                  }
+                },
+                "argp": {
+                  "embed": false,
+                  "name": "argp",
+                  "tags": {},
+                  "type": {
+                    "kind": "selector",
+                    "prefix": "unsafe",
+                    "value": "Pointer"
+                  }
+                },
+                "link": {
+                  "embed": false,
+                  "name": "link",
+                  "tags": {},
+                  "type": {
+                    "kind": "pointer",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "_panic"
+                    }
+                  }
+                },
+                "recovered": {
+                  "embed": false,
+                  "name": "recovered",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "bool"
+                  }
+                }
+              },
+              "name": "_panic"
+            }
+          }
+        },
+        "/opt/local/lib/go/src/runtime/symtab.go": {
+          "import": {
+            "sys": {
+              "fullname": "runtime/internal/sys",
+              "name": "sys",
+              "needparse": false
+            },
+            "unsafe": {
+              "fullname": "unsafe",
+              "name": "unsafe",
+              "needparse": false
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/symtab.go",
+          "struct": {
+            "Frame": {
+              "fields": {
+                "Entry": {
+                  "embed": false,
+                  "name": "Entry",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uintptr"
+                  }
+                },
+                "File": {
+                  "embed": false,
+                  "name": "File",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "string"
+                  }
+                },
+                "Func": {
+                  "embed": false,
+                  "name": "Func",
+                  "tags": {},
+                  "type": {
+                    "kind": "pointer",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "Func"
+                    }
+                  }
+                },
+                "Function": {
+                  "embed": false,
+                  "name": "Function",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "string"
+                  }
+                },
+                "Line": {
+                  "embed": false,
+                  "name": "Line",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int"
+                  }
+                },
+                "PC": {
+                  "embed": false,
+                  "name": "PC",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uintptr"
+                  }
+                }
+              },
+              "name": "Frame"
+            },
+            "Frames": {
+              "fields": {
+                "callers": {
+                  "embed": false,
+                  "name": "callers",
+                  "tags": {},
+                  "type": {
+                    "kind": "array",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "uintptr"
+                    }
+                  }
+                },
+                "frames": {
+                  "embed": false,
+                  "name": "frames",
+                  "tags": {},
+                  "type": {
+                    "kind": "pointer",
+                    "value": {
+                      "kind": "array",
+                      "value": {
+                        "kind": "primitive",
+                        "value": "Frame"
+                      }
+                    }
+                  }
+                },
+                "wasPanic": {
+                  "embed": false,
+                  "name": "wasPanic",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "bool"
+                  }
+                }
+              },
+              "name": "Frames"
+            },
+            "Func": {
+              "fields": {
+                "opaque": {
+                  "embed": false,
+                  "name": "opaque",
+                  "tags": {},
+                  "type": {
+                    "fields": [],
+                    "kind": "struct"
+                  }
+                }
+              },
+              "name": "Func"
+            }
+          }
+        },
+        "/opt/local/lib/go/src/runtime/type.go": {
+          "import": {
+            "unsafe": {
+              "fullname": "unsafe",
+              "name": "unsafe",
+              "needparse": false
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/type.go",
+          "struct": {
+            "_type": {
+              "fields": {
+                "alg": {
+                  "embed": false,
+                  "name": "alg",
+                  "tags": {},
+                  "type": {
+                    "kind": "pointer",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "typeAlg"
+                    }
+                  }
+                },
+                "align": {
+                  "embed": false,
+                  "name": "align",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint8"
+                  }
+                },
+                "fieldalign": {
+                  "embed": false,
+                  "name": "fieldalign",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint8"
+                  }
+                },
+                "gcdata": {
+                  "embed": false,
+                  "name": "gcdata",
+                  "tags": {},
+                  "type": {
+                    "kind": "pointer",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "byte"
+                    }
+                  }
+                },
+                "hash": {
+                  "embed": false,
+                  "name": "hash",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint32"
+                  }
+                },
+                "kind": {
+                  "embed": false,
+                  "name": "kind",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uint8"
+                  }
+                },
+                "ptrToThis": {
+                  "embed": false,
+                  "name": "ptrToThis",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "typeOff"
+                  }
+                },
+                "ptrdata": {
+                  "embed": false,
+                  "name": "ptrdata",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uintptr"
+                  }
+                },
+                "size": {
+                  "embed": false,
+                  "name": "size",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "uintptr"
+                  }
+                },
+                "str": {
+                  "embed": false,
+                  "name": "str",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "nameOff"
+                  }
+                },
+                "tflag": {
+                  "embed": false,
+                  "name": "tflag",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "tflag"
+                  }
+                }
+              },
+              "name": "_type"
+            }
+          }
+        }
+      },
+      "fullname": "runtime",
+      "name": "runtime"
+    },
+    "runtime_test": {
+      "file": {},
+      "fullname": "runtime_test",
+      "name": "runtime_test"
+    },
+    "sort": {
+      "file": {
+        "/opt/local/lib/go/src/sort/sort.go": {
+          "alias": {
+            "Float64Slice": {
+              "candidates": null,
+              "name": "Float64Slice",
+              "original": {
+                "kind": "array",
+                "value": {
+                  "kind": "primitive",
+                  "value": "float64"
+                }
+              }
+            },
+            "IntSlice": {
+              "candidates": null,
+              "name": "IntSlice",
+              "original": {
+                "kind": "array",
+                "value": {
+                  "kind": "primitive",
+                  "value": "int"
+                }
+              }
+            },
+            "StringSlice": {
+              "candidates": null,
+              "name": "StringSlice",
+              "original": {
+                "kind": "array",
+                "value": {
+                  "kind": "primitive",
+                  "value": "string"
+                }
+              }
+            }
+          },
+          "interface": {
+            "Interface": {
+              "name": "Interface"
+            }
+          },
+          "name": "/opt/local/lib/go/src/sort/sort.go"
+        }
+      },
+      "fullname": "sort",
+      "name": "sort"
+    },
+    "sort_test": {
+      "file": {},
+      "fullname": "sort_test",
+      "name": "sort_test"
+    },
+    "strconv": {
+      "file": {
+        "/opt/local/lib/go/src/strconv/atoi.go": {
+          "import": {
+            "errors": {
+              "fullname": "errors",
+              "name": "errors",
+              "needparse": false
+            }
+          },
+          "name": "/opt/local/lib/go/src/strconv/atoi.go",
+          "struct": {
+            "NumError": {
+              "fields": {
+                "Err": {
+                  "embed": false,
+                  "name": "Err",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "error"
+                  }
+                },
+                "Func": {
+                  "embed": false,
+                  "name": "Func",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "string"
+                  }
+                },
+                "Num": {
+                  "embed": false,
+                  "name": "Num",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "string"
+                  }
+                }
+              },
+              "name": "NumError"
+            }
+          }
+        }
+      },
+      "fullname": "strconv",
+      "name": "strconv"
+    },
+    "strconv_test": {
+      "file": {},
+      "fullname": "strconv_test",
+      "name": "strconv_test"
+    },
+    "strings": {
+      "file": {
+        "/opt/local/lib/go/src/strings/reader.go": {
+          "import": {
+            "errors": {
+              "fullname": "errors",
+              "name": "errors",
+              "needparse": false
+            },
+            "io": {
+              "fullname": "io",
+              "name": "io",
+              "needparse": false
+            },
+            "utf8": {
+              "fullname": "unicode/utf8",
+              "name": "utf8",
+              "needparse": false
+            }
+          },
+          "name": "/opt/local/lib/go/src/strings/reader.go",
+          "struct": {
+            "Reader": {
+              "fields": {
+                "i": {
+                  "embed": false,
+                  "name": "i",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int64"
+                  }
+                },
+                "prevRune": {
+                  "embed": false,
+                  "name": "prevRune",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int"
+                  }
+                },
+                "s": {
+                  "embed": false,
+                  "name": "s",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "string"
+                  }
+                }
+              },
+              "name": "Reader"
+            }
+          }
+        },
+        "/opt/local/lib/go/src/strings/replace.go": {
+          "import": {
+            "io": {
+              "fullname": "io",
+              "name": "io",
+              "needparse": false
+            }
+          },
+          "name": "/opt/local/lib/go/src/strings/replace.go",
+          "struct": {
+            "Replacer": {
+              "fields": {
+                "r": {
+                  "embed": false,
+                  "name": "r",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "replacer"
+                  }
+                }
+              },
+              "name": "Replacer"
+            }
+          }
+        }
+      },
+      "fullname": "strings",
+      "name": "strings"
+    },
+    "strings_test": {
+      "file": {},
+      "fullname": "strings_test",
+      "name": "strings_test"
+    },
+    "sys": {
+      "file": {
+        "/opt/local/lib/go/src/runtime/internal/sys/arch.go": {
+          "alias": {
+            "ArchFamilyType": {
+              "candidates": null,
+              "name": "ArchFamilyType",
+              "original": {
+                "kind": "primitive",
+                "value": "int"
+              }
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/internal/sys/arch.go"
+        },
+        "/opt/local/lib/go/src/runtime/internal/sys/arch_386.go": {
+          "alias": {
+            "Uintreg": {
+              "candidates": null,
+              "name": "Uintreg",
+              "original": {
+                "kind": "primitive",
+                "value": "uint32"
+              }
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/internal/sys/arch_386.go"
+        },
+        "/opt/local/lib/go/src/runtime/internal/sys/arch_amd64.go": {
+          "alias": {
+            "Uintreg": {
+              "candidates": null,
+              "name": "Uintreg",
+              "original": {
+                "kind": "primitive",
+                "value": "uint64"
+              }
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/internal/sys/arch_amd64.go"
+        },
+        "/opt/local/lib/go/src/runtime/internal/sys/arch_amd64p32.go": {
+          "alias": {
+            "Uintreg": {
+              "candidates": null,
+              "name": "Uintreg",
+              "original": {
+                "kind": "primitive",
+                "value": "uint64"
+              }
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/internal/sys/arch_amd64p32.go"
+        },
+        "/opt/local/lib/go/src/runtime/internal/sys/arch_arm.go": {
+          "alias": {
+            "Uintreg": {
+              "candidates": null,
+              "name": "Uintreg",
+              "original": {
+                "kind": "primitive",
+                "value": "uint32"
+              }
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/internal/sys/arch_arm.go"
+        },
+        "/opt/local/lib/go/src/runtime/internal/sys/arch_arm64.go": {
+          "alias": {
+            "Uintreg": {
+              "candidates": null,
+              "name": "Uintreg",
+              "original": {
+                "kind": "primitive",
+                "value": "uint64"
+              }
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/internal/sys/arch_arm64.go"
+        },
+        "/opt/local/lib/go/src/runtime/internal/sys/arch_mips64.go": {
+          "alias": {
+            "Uintreg": {
+              "candidates": null,
+              "name": "Uintreg",
+              "original": {
+                "kind": "primitive",
+                "value": "uint64"
+              }
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/internal/sys/arch_mips64.go"
+        },
+        "/opt/local/lib/go/src/runtime/internal/sys/arch_mips64le.go": {
+          "alias": {
+            "Uintreg": {
+              "candidates": null,
+              "name": "Uintreg",
+              "original": {
+                "kind": "primitive",
+                "value": "uint64"
+              }
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/internal/sys/arch_mips64le.go"
+        },
+        "/opt/local/lib/go/src/runtime/internal/sys/arch_ppc64.go": {
+          "alias": {
+            "Uintreg": {
+              "candidates": null,
+              "name": "Uintreg",
+              "original": {
+                "kind": "primitive",
+                "value": "uint64"
+              }
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/internal/sys/arch_ppc64.go"
+        },
+        "/opt/local/lib/go/src/runtime/internal/sys/arch_ppc64le.go": {
+          "alias": {
+            "Uintreg": {
+              "candidates": null,
+              "name": "Uintreg",
+              "original": {
+                "kind": "primitive",
+                "value": "uint64"
+              }
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/internal/sys/arch_ppc64le.go"
+        },
+        "/opt/local/lib/go/src/runtime/internal/sys/arch_s390x.go": {
+          "alias": {
+            "Uintreg": {
+              "candidates": null,
+              "name": "Uintreg",
+              "original": {
+                "kind": "primitive",
+                "value": "uint64"
+              }
+            }
+          },
+          "name": "/opt/local/lib/go/src/runtime/internal/sys/arch_s390x.go"
+        }
+      },
+      "fullname": "sys",
+      "name": "sys"
+    },
+    "sys_test": {
+      "file": {},
+      "fullname": "sys_test",
+      "name": "sys_test"
+    },
+    "time": {
+      "file": {
+        "/opt/local/lib/go/src/time/format.go": {
+          "import": {
+            "errors": {
+              "fullname": "errors",
+              "name": "errors",
+              "needparse": false
+            }
+          },
+          "name": "/opt/local/lib/go/src/time/format.go",
+          "struct": {
+            "ParseError": {
+              "fields": {
+                "Layout": {
+                  "embed": false,
+                  "name": "Layout",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "string"
+                  }
+                },
+                "LayoutElem": {
+                  "embed": false,
+                  "name": "LayoutElem",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "string"
+                  }
+                },
+                "Message": {
+                  "embed": false,
+                  "name": "Message",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "string"
+                  }
+                },
+                "Value": {
+                  "embed": false,
+                  "name": "Value",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "string"
+                  }
+                },
+                "ValueElem": {
+                  "embed": false,
+                  "name": "ValueElem",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "string"
+                  }
+                }
+              },
+              "name": "ParseError"
+            }
+          }
+        },
+        "/opt/local/lib/go/src/time/sleep.go": {
+          "name": "/opt/local/lib/go/src/time/sleep.go",
+          "struct": {
+            "Timer": {
+              "fields": {
+                "C": {
+                  "embed": false,
+                  "name": "C",
+                  "tags": {},
+                  "type": {
+                    "dir": 2,
+                    "kind": "channel",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "Time"
+                    }
+                  }
+                },
+                "r": {
+                  "embed": false,
+                  "name": "r",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "runtimeTimer"
+                  }
+                }
+              },
+              "name": "Timer"
+            }
+          }
+        },
+        "/opt/local/lib/go/src/time/tick.go": {
+          "import": {
+            "errors": {
+              "fullname": "errors",
+              "name": "errors",
+              "needparse": false
+            }
+          },
+          "name": "/opt/local/lib/go/src/time/tick.go",
+          "struct": {
+            "Ticker": {
+              "fields": {
+                "C": {
+                  "embed": false,
+                  "name": "C",
+                  "tags": {},
+                  "type": {
+                    "dir": 2,
+                    "kind": "channel",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "Time"
+                    }
+                  }
+                },
+                "r": {
+                  "embed": false,
+                  "name": "r",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "runtimeTimer"
+                  }
+                }
+              },
+              "name": "Ticker"
+            }
+          }
+        },
+        "/opt/local/lib/go/src/time/time.go": {
+          "alias": {
+            "Duration": {
+              "candidates": [
+                {
+                  "name": "minDuration",
+                  "value": "1"
+                },
+                {
+                  "name": "Nanosecond",
+                  "value": "1"
+                },
+                {
+                  "name": "maxDuration",
+                  "value": "1"
+                }
+              ],
+              "name": "Duration",
+              "original": {
+                "kind": "primitive",
+                "value": "int64"
+              }
+            },
+            "Month": {
+              "candidates": [
+                {
+                  "name": "January",
+                  "value": "1"
+                }
+              ],
+              "name": "Month",
+              "original": {
+                "kind": "primitive",
+                "value": "int"
+              }
+            },
+            "Weekday": {
+              "candidates": null,
+              "name": "Weekday",
+              "original": {
+                "kind": "primitive",
+                "value": "int"
+              }
+            }
+          },
+          "import": {
+            "errors": {
+              "fullname": "errors",
+              "name": "errors",
+              "needparse": false
+            }
+          },
+          "name": "/opt/local/lib/go/src/time/time.go",
+          "struct": {
+            "Time": {
+              "fields": {
+                "loc": {
+                  "embed": false,
+                  "name": "loc",
+                  "tags": {},
+                  "type": {
+                    "kind": "pointer",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "Location"
+                    }
+                  }
+                },
+                "nsec": {
+                  "embed": false,
+                  "name": "nsec",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int32"
+                  }
+                },
+                "sec": {
+                  "embed": false,
+                  "name": "sec",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int64"
+                  }
+                }
+              },
+              "name": "Time"
+            }
+          }
+        },
+        "/opt/local/lib/go/src/time/zoneinfo.go": {
+          "import": {
+            "sync": {
+              "fullname": "sync",
+              "name": "sync",
+              "needparse": false
+            },
+            "syscall": {
+              "fullname": "syscall",
+              "name": "syscall",
+              "needparse": false
+            }
+          },
+          "name": "/opt/local/lib/go/src/time/zoneinfo.go",
+          "struct": {
+            "Location": {
+              "fields": {
+                "cacheEnd": {
+                  "embed": false,
+                  "name": "cacheEnd",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int64"
+                  }
+                },
+                "cacheStart": {
+                  "embed": false,
+                  "name": "cacheStart",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "int64"
+                  }
+                },
+                "cacheZone": {
+                  "embed": false,
+                  "name": "cacheZone",
+                  "tags": {},
+                  "type": {
+                    "kind": "pointer",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "zone"
+                    }
+                  }
+                },
+                "name": {
+                  "embed": false,
+                  "name": "name",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "string"
+                  }
+                },
+                "tx": {
+                  "embed": false,
+                  "name": "tx",
+                  "tags": {},
+                  "type": {
+                    "kind": "array",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "zoneTrans"
+                    }
+                  }
+                },
+                "zone": {
+                  "embed": false,
+                  "name": "zone",
+                  "tags": {},
+                  "type": {
+                    "kind": "array",
+                    "value": {
+                      "kind": "primitive",
+                      "value": "zone"
+                    }
+                  }
+                }
+              },
+              "name": "Location"
+            }
+          }
+        }
+      },
+      "fullname": "time",
+      "name": "time"
+    },
+    "time_test": {
+      "file": {},
+      "fullname": "time_test",
+      "name": "time_test"
+    },
+    "utf8": {
+      "file": {},
+      "fullname": "utf8",
+      "name": "utf8"
+    },
+    "utf8_test": {
+      "file": {},
+      "fullname": "utf8_test",
+      "name": "utf8_test"
     }
   }
 }

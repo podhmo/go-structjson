@@ -1,6 +1,8 @@
 package models
 
 import (
+	"time"
+
 	"gopkg.in/mgo.v2/bson"
 )
 
@@ -16,8 +18,10 @@ const (
 
 // Person : person model
 type Person struct {
-	ID     bson.ObjectId `json:"id" bson:"_id"`
-	Name   string        `json:"name" bson:"name"`
-	Age    int           `json:"age" bson:"age"`
-	Gender PersonGender  `json:"gender" bson:"gender"`
+	ID        bson.ObjectId `json:"id" bson:"_id"`
+	Name      string        `json:"name" bson:"name"`
+	Age       int           `json:"age" bson:"age"`
+	Gender    PersonGender  `json:"gender" bson:"gender"`
+	CreatedAt time.Time     `json:"createdAt" bson:"createdAt"`
+	UpdateAt  *time.Time    `json:"updatedAt,omitempty" bson:"updatedAt,omitempty"`
 }
