@@ -21,7 +21,7 @@ type FuncDefinition struct {
 }
 type Value struct {
 	Name string          `json:"name"`
-	Type structjson.Type `json:type`
+	Type structjson.Type `json:"type"`
 }
 type World struct {
 	Modules map[string]*Module `json:"module"`
@@ -78,7 +78,7 @@ func parse(world *World, fpath string, used map[string]struct{}) error {
 			continue
 		}
 		module := NewModule(pkg.Name)
-        module.FullName = fullname
+		module.FullName = fullname
 		world.Modules[pkg.Name] = module
 		for fname, f := range pkg.Files {
 			if f == nil {
