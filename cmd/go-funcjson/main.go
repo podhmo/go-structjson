@@ -71,18 +71,25 @@ func parse(world *World, fpath string, used map[string]struct{}) error {
 		return err
 	}
 	gosrc := path.Join(os.Getenv("GOPATH"), "src")
-	_ = gosrc
 	r := structjson.NewResult("")
-	for fullname, pkg := range pkgs {
+	for _, pkg := range pkgs {
 		if pkg == nil {
 			continue
 		}
 		module := NewModule(pkg.Name)
-		module.FullName = fullname
 		world.Modules[pkg.Name] = module
 		for fname, f := range pkg.Files {
 			if f == nil {
 				continue
+			}
+			if module.FullName == "" {
+				if stat, err := os.Stat(fname); err == nil {
+					if stat.IsDir() {
+						module.FullName = fname[len(gosrc)+1:]
+					} else {
+						module.FullName = filepath.Dir(fname)[len(gosrc)+1:]
+					}
+				}
 			}
 			file := NewFile(fname)
 			module.Files[file.Name] = file
