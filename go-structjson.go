@@ -443,27 +443,31 @@ type ImportDefinition struct {
 	NeedParse bool   `json:"needparse"`
 }
 
-func CollectResult(name string, scope *ast.Scope, imports []*ast.ImportSpec) (*Result, error) {
-	r := NewResult(name)
+func CollectImports(imports []*ast.ImportSpec) map[string]*ImportDefinition {
+	m := map[string]*ImportDefinition{}
 	for _, im := range imports {
 		fullname, err := strconv.Unquote(im.Path.Value)
 		if err != nil {
-			return r, err
+			continue
 		}
 		var name string
 		if im.Name == nil {
 			name = path.Base(fullname)
 		} else {
 			name = im.Name.Name
-			fullname = name
 		}
-		r.ImportsMap[name] = &ImportDefinition{
+		m[name] = &ImportDefinition{
 			Name:      name,
 			FullName:  fullname,
 			NeedParse: false,
 		}
 	}
+	return m
+}
 
+func CollectResult(name string, scope *ast.Scope, imports []*ast.ImportSpec) (*Result, error) {
+	r := NewResult(name)
+	r.ImportsMap = CollectImports(imports)
 	for _, ob := range scope.Objects {
 		anyFound := false
 		if isStructDefinition(ob) {

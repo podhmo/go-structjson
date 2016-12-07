@@ -33,8 +33,9 @@ type Module struct {
 }
 
 type File struct {
-	Name    string                     `json:"name"`
-	FuncMap map[string]*FuncDefinition `json:"funcs"`
+	Name       string                                  `json:"name"`
+	FuncMap    map[string]*FuncDefinition              `json:"function"`
+	ImportsMap map[string]*structjson.ImportDefinition `json:"import,omitempty"`
 }
 
 func NewFuncDefinition(name string) *FuncDefinition {
@@ -47,8 +48,9 @@ func NewFuncDefinition(name string) *FuncDefinition {
 
 func NewFile(name string) *File {
 	return &File{
-		Name:    name,
-		FuncMap: make(map[string]*FuncDefinition),
+		Name:       name,
+		FuncMap:    make(map[string]*FuncDefinition),
+		ImportsMap: make(map[string]*structjson.ImportDefinition),
 	}
 }
 
@@ -93,6 +95,7 @@ func parse(world *World, fpath string, used map[string]struct{}) error {
 			}
 			file := NewFile(fname)
 			module.Files[file.Name] = file
+			file.ImportsMap = structjson.CollectImports(f.Imports)
 			for _, node := range f.Decls {
 				switch node := node.(type) {
 				case *ast.FuncDecl:

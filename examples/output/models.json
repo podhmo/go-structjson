@@ -852,7 +852,7 @@
         "GOPATH/src/github.com/podhmo/go-structjson/examples/models/group.go": {
           "import": {
             "b": {
-              "fullname": "b",
+              "fullname": "gopkg.in/mgo.v2/bson",
               "name": "b",
               "needparse": true
             }
