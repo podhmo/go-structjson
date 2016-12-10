@@ -1,0 +1,78 @@
+{
+  "module": {
+    "alias": {
+      "file": {
+        "GOPATH/src/github.com/podhmo/go-structjson/examples/alias/person.go": {
+          "alias": {
+            "P": {
+              "candidates": null,
+              "name": "P",
+              "original": {
+                "kind": "pointer",
+                "value": {
+                  "kind": "primitive",
+                  "value": "Person"
+                }
+              }
+            },
+            "PS": {
+              "candidates": null,
+              "name": "PS",
+              "original": {
+                "kind": "array",
+                "value": {
+                  "kind": "primitive",
+                  "value": "Person"
+                }
+              }
+            },
+            "PS2": {
+              "candidates": null,
+              "name": "PS2",
+              "original": {
+                "kind": "array",
+                "value": {
+                  "kind": "primitive",
+                  "value": "P"
+                }
+              }
+            },
+            "PSP": {
+              "candidates": null,
+              "name": "PSP",
+              "original": {
+                "kind": "pointer",
+                "value": {
+                  "kind": "array",
+                  "value": {
+                    "kind": "primitive",
+                    "value": "P"
+                  }
+                }
+              }
+            }
+          },
+          "name": "GOPATH/src/github.com/podhmo/go-structjson/examples/alias/person.go",
+          "struct": {
+            "Person": {
+              "fields": {
+                "Name": {
+                  "embed": false,
+                  "name": "Name",
+                  "tags": {},
+                  "type": {
+                    "kind": "primitive",
+                    "value": "string"
+                  }
+                }
+              },
+              "name": "Person"
+            }
+          }
+        }
+      },
+      "fullname": "github.com/podhmo/go-structjson/examples/alias",
+      "name": "alias"
+    }
+  }
+}

@@ -2,7 +2,7 @@ install:
 	go install -v github.com/podhmo/go-structjson/cmd/go-structjson
 	go install -v github.com/podhmo/go-structjson/cmd/go-funcjson
 
-example: example1 example2 example3 example4 example5
+example: example1 example2 example3 example4 example5 example6
 
 example1:
 	go-structjson --target ./examples/models/  | jq . -S | sed "s@`echo $$GOPATH`@GOPATH@g;" | tee ./examples/output/models.json
@@ -18,3 +18,6 @@ example4:
 
 example5:
 	go-structjson --target ./examples/array/  | jq . -S | sed "s@`echo $$GOPATH`@GOPATH@g;" | tee ./examples/output/array.json
+
+example6:
+	go-structjson --target ./examples/alias/  | jq . -S | sed "s@`echo $$GOPATH`@GOPATH@g;" | tee ./examples/output/alias.json
